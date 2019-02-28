@@ -97,6 +97,7 @@ deleteskillValue() {
         .then((data:any)=>{
           this.candidate = data;
           this.details = this.candidate['Candidate Details'];
+          console.log("this.details",this.details);
           this.firstName =  this.details.firstName;
           this.lastName = this.details.lastName;
           this.emailId = this.details.emailId;

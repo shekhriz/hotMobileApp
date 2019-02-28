@@ -77,7 +77,7 @@ import { CreateCandidateSidePage }  from '../pages/create-candidate-side/create-
 //import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 //import { File } from '@ionic-native/file';
 import { DisplayQuestionsPage }  from '../pages/display-questions/display-questions';
-import { GeneralQuestionPage }  from '../pages/general-question/general-question';
+//import { GeneralQuestionPage }  from '../pages/general-question/general-question';
 import { AddTechnicalPage }  from '../pages/add-technical/add-technical';
 import { AddGeneralPage }  from '../pages/add-general/add-general';
 import { EditGeneralModelPage }  from '../pages/edit-general-model/edit-general-model';
@@ -98,9 +98,15 @@ import { AddNotesPage }  from '../pages/add-notes/add-notes';
 import { ViewAllRecruiterPage }  from '../pages/view-all-recruiter/view-all-recruiter';
 import { ViewAllScreenerPage }  from '../pages/view-all-screener/view-all-screener';
 import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
-
-
-
+import { ProfilePage }  from '../pages/profile/profile';
+import { ApplicationSettingPage }  from '../pages/application-setting/application-setting';
+import { RecruiterScoringPage }  from '../pages/recruiter-scoring/recruiter-scoring';
+import { SubvendorScoringPage }  from '../pages/subvendor-scoring/subvendor-scoring';
+import { ScreenerScoringPage }  from '../pages/screener-scoring/screener-scoring';
+import { ChangePasswordPage }  from '../pages/change-password/change-password';
+import { SkillManagementPage }  from '../pages/skill-management/skill-management';
+import { VideoPage }  from '../pages/video/video';
+import { VideoModalPage }  from '../pages/video-modal/video-modal';
 
 
 
@@ -177,7 +183,7 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
     EditCandidateSidePage,
     CreateCandidateSidePage,
     DisplayQuestionsPage,
-    GeneralQuestionPage,
+   // GeneralQuestionPage,
     AddTechnicalPage,
     AddGeneralPage,
     EditGeneralModelPage,
@@ -194,7 +200,16 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
     AddNotesPage,
     ViewAllRecruiterPage,
     ViewAllScreenerPage,
-    FeedbackFormPage
+    FeedbackFormPage,
+    ProfilePage,
+    ApplicationSettingPage,
+    RecruiterScoringPage,
+    SubvendorScoringPage,
+    ScreenerScoringPage,
+    ChangePasswordPage,
+    SkillManagementPage,
+    VideoPage,
+    VideoModalPage
 
   ],
 
@@ -240,7 +255,7 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
               { component: EditCandidateSidePage, segment: 'EditCandidate/:canId' },
               { component: CreateCandidateSidePage, segment: 'CreateCandidate' },
               { component: DisplayQuestionsPage, segment: 'DisplayQuestions' },
-              { component: GeneralQuestionPage, segment: 'GeneralQuestion' },
+              //{ component: GeneralQuestionPage, segment: 'GeneralQuestion' },
               { component: AddTechnicalPage, segment: 'AddTechnical' },
               { component: AddGeneralPage, segment: 'AddGeneral' },
               { component: EditGeneralModelPage, segment: 'EditGeneralQuestion' },
@@ -253,8 +268,16 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
               { component: AddCandidateDbPage, segment: 'requirement-Display-Candidates' },
               { component: ViewAllRecruiterPage, segment: 'ViewAllRecruiters' },
               { component: ViewAllScreenerPage, segment: 'ViewAllScreener' },
-              { component: FeedbackFormPage, segment: 'FeedbackForm' },
-             
+              { component: FeedbackFormPage, segment: 'FeedbackForm/:cId' },
+              { component: ProfilePage, segment: 'Profile' },             
+              { component: SettingsPage, segment: 'settings' },
+              { component: ApplicationSettingPage, segment: 'Application-settings' },
+              { component: RecruiterScoringPage, segment: 'Recruiter-scoring' },
+              { component: SubvendorScoringPage, segment: 'Subvendor-scoring' },
+              { component: ScreenerScoringPage, segment: 'Screener-scoring' },
+              { component: ChangePasswordPage, segment: 'Change-Password' },
+              { component: SkillManagementPage, segment: 'SkillManagement' },
+              { component: VideoPage, segment: 'videos-library' },
               
               
             ]
@@ -326,7 +349,7 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
     EditCandidateSidePage,
     CreateCandidateSidePage,
     DisplayQuestionsPage,
-    GeneralQuestionPage,
+   // GeneralQuestionPage,
     AddTechnicalPage,
     AddGeneralPage,
     EditGeneralModelPage,
@@ -343,7 +366,16 @@ import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
     AddNotesPage,
     ViewAllRecruiterPage,
     ViewAllScreenerPage,
-    FeedbackFormPage
+    FeedbackFormPage,
+    ProfilePage,
+    ApplicationSettingPage,
+    RecruiterScoringPage,
+    SubvendorScoringPage,
+    ScreenerScoringPage,
+    ChangePasswordPage,
+    SkillManagementPage,
+    VideoPage,
+    VideoModalPage
 
   ],
   providers: [

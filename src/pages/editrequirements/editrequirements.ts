@@ -280,7 +280,7 @@ addClientModal(contact){
     loading.present();   
       this.restProvider.updateRequirement(jsonData,this.token)
         .then(data => {
-          this.util.saveSessionUser(data);
+         
           loading.dismiss();
           this.util.showToast("Successfully Submitted.","SUCCESS");
         },error => {

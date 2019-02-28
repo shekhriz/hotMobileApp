@@ -1,0 +1,41 @@
+page-application-setting {
+    
+    ion-header{
+        .addBtn{
+            display: flex;
+            background-color: #eee;
+            color: #0c0909;
+            padding: 5px;
+            .btn1{
+                flex: 1; 
+                background: #bdbdbd;
+                 color: black;
+            }
+            h1{
+                font-size: 18px;
+                font-weight: bold;
+                flex: 10;
+                margin: 10px;
+            }
+           .btn2{
+                flex: 3;
+                float: right;
+                color: #fff;
+                border-color:#fff;
+                background-color: #343434;
+            }
+        }
+    }
+    ion-card{
+        ion-card-content{
+            ._row{
+                margin-top: 18px;
+                margin-bottom:18px;
+               
+            }
+           
+           
+        }
+       
+    }
+}

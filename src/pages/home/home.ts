@@ -9,6 +9,7 @@ import { RequirementsPage } from '../../pages/requirements/requirements';
 import { CandidateSidePage }  from '../../pages/candidate-side/candidate-side';
 import { ViewAllRecruiterPage }  from '../../pages/view-all-recruiter/view-all-recruiter';
 import { ViewAllScreenerPage }  from '../../pages/view-all-screener/view-all-screener';
+import { EditUserPage }  from '../../pages/edit-user/edit-user';
 
 
 @Component({
@@ -110,12 +111,10 @@ export class HomePage {
     });  
   }
   
-  openHomeModal(value){
-    let chooseModal = this.modalCtrl.create(HomemodalPage,{id:value.id});
-  //   chooseModal.onDidDismiss((user:any) => {
-  // });
-  chooseModal.present(); 
-  //console.log("id is::::",value);
+  gotoEditUser(id){
+   
+    this.navCtrl.push(EditUserPage,{userId:id});
+console.log("id",id)
   }
   
   hide() {

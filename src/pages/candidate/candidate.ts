@@ -30,6 +30,9 @@ export class CandidatePage {
   jobTitle:string;
   interviewType:string;
   interviewArray =[];
+  primarySkill:any;
+  secondarySkill:any;
+
   constructor(public util: UtilsProvider,
     public navParams: NavParams,
     public navCtrl: NavController,
@@ -47,7 +50,10 @@ export class CandidatePage {
       this.candidateLink = navParams.get('candidateLink');
       this.jobTitle = navParams.get('jobTitle');
       this.interviewType = navParams.get('interviewType');
-      console.log('interviewType',this.interviewType);
+      this.primarySkill = navParams.get('primarySkill');
+      this.secondarySkill = navParams.get('secondarySkill');
+
+     // console.log('interviewType',this.primarySkill,this.secondarySkill);
       this.loginUser = this.util.getSessionUser();
       this.candidatesById(this.loginUser);
       
@@ -99,7 +105,7 @@ export class CandidatePage {
     popover.present({
      ev: myEvent  
     });
-  
+  console.log('candidate',candidate)
   }
 
   goBack(){

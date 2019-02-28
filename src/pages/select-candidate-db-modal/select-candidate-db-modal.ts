@@ -22,17 +22,18 @@ export class SelectCandidateDbModalPage {
   interviewType:any;
   interviewName :any;
   reqId:string;
-
+  submissionType:string;
+  selectedScr:string;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public restProvider: RestProvider,
     public util: UtilsProvider,
     public viewCtrl : ViewController) {
     this.selecteddetails = navParams.get('selecteddetails');
     this.selecteddetails = navParams.get('selecteddetails');
-    this.interviewType = navParams.get('interviewType');
+   // this.interviewType = navParams.get('interviewType');
     this.reqId = navParams.get('reqId');
 
-    console.log("interviewType",this.interviewType);
+  //  console.log("interviewType",this.interviewType);
     this.token = this.util.getToken();
    
 
@@ -45,17 +46,43 @@ export class SelectCandidateDbModalPage {
     this.viewCtrl.dismiss();
   }
 
-  onSelectChange(details) {
-    console.log("adi",details.tempInterviewType);
-    if(details.tempInterviewType == 'Zoom' || details.tempInterviewType == 'Skype' || details.tempInterviewType == 'Two way'){
+ // onSelectChange(details) {
+    // console.log("adi",details.submissionType);
+    // if(details.submissionType == 'Zoom' || details.submissionType == 'Skype' || details.submissionType == 'Two way'){
+    //   this.restProvider.getRequirementUserStatics(this.token,this.reqId)
+    //   .then((res:any)=>{
+    //     this.scrData = res;
+    //    console.log('scrData',this.scrData) 
+    //   },errrr=>{
+    //   });
+    // }
+    // console.log(" selectedType",this.selectedType)
+  
+ // }
+  onSelectChange(selectedValue) {
+    console.log('Selected', selectedValue);
+    this.submissionType = selectedValue;
+    console.log("adyasa",this.submissionType); 
+    if(this.submissionType == 'Zoom' || this.submissionType == 'Skype'){
       this.restProvider.getRequirementUserStatics(this.token,this.reqId)
-      .then((res:any)=>{
-        this.scrData = res;
-       console.log('scrData',this.scrData) 
+      .then((data:any)=>{
+        this.scrData = data
+        console.log("rizwan",this.submissionType); 
       },errrr=>{
       });
+   this.selectedScr = selectedValue;
+     
+      console.log("ssssssssssss",this.selectedScr); 
+
     }
-    console.log(" selectedType",this.selectedType)
-  
+    
   }
+
+  // onSelectChangeName(selectedValue) {
+  //   console.log('hello', selectedValue);
+  //   this.selectedScr = selectedValue;
+  //   console.log('selectedScr', this.selectedScr);
+
+
+  // }
 }

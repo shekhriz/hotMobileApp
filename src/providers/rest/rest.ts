@@ -54,7 +54,19 @@ apiUrl = '/';
         });
     });
   }
-
+  newLogin(data,token) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.apiUrl+'hot/newLogin', JSON.stringify(data),{
+        headers: new HttpHeaders().set('Authorization', token)
+                .append('Accept', 'application/json;odata=verbose')
+                .append('Content-Type','application/json')
+       }).subscribe(res => {
+          resolve(res);
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
   login(data,token) {
     return new Promise((resolve, reject) => {
       this.http.post(this.apiUrl+'hot/login', JSON.stringify(data),{
@@ -1814,4 +1826,197 @@ screenerFeedBack(token,data){
   });
 }
 
+settings(token){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/settings',{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+settingsUpdate(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.put(this.apiUrl+'hot/settings/update/', JSON.stringify(data),{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+     //  console.log('i m here success',res);
+        resolve(res);
+      }, (err) => {
+        console.log('i m here error',err);
+        reject(err);
+      });
+  });  
+}
+recruiterScore(token){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/score/recruiterScore',{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+recruiterScoring(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/score/recruiterScoring',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+updateRecruiter(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.put(this.apiUrl+'hot/score/update/recruiterScoringSchema', JSON.stringify(data),{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+     //  console.log('i m here success',res);
+        resolve(res);
+      }, (err) => {
+        console.log('i m here error',err);
+        reject(err);
+      });
+  });  
+}
+subVendorDetails(token){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/score/get/subVendorDetails',{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+subvendorScoringSchema(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/score/subvendorScoringSchema',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+
+revertSubVendorSchema(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.put(this.apiUrl+'hot/score/revert/subVendorSchema', JSON.stringify(data),{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+     //  console.log('i m here success',res);
+        resolve(res);
+      }, (err) => {
+        console.log('i m here error',err);
+        reject(err);
+      });
+  });  
+}
+tsDetails(token){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/score/get/tsDetails',{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+tsScoringSchema(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/score/tsScoringSchema',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+revertTsSchema(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.put(this.apiUrl+'hot/score/revert/tsSchema', JSON.stringify(data),{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+     //  console.log('i m here success',res);
+        resolve(res);
+      }, (err) => {
+        console.log('i m here error',err);
+        reject(err);
+      });
+  });  
+}
+
+changePassword(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/user/changePassword',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+getLibraryVideos(token){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/user/getLibraryVideos',{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
+}
+deleteVideo(token,id) {
+  let url = 'hot/user/deleteVideo/'+id;
+  return new Promise(resolve => {
+    this.http.delete(this.apiUrl+url,{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+      resolve(res);
+    }, err => {
+      console.log(err);
+    });
+  });
+}
   }

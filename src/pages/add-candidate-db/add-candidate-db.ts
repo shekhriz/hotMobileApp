@@ -41,11 +41,11 @@ export class AddCandidateDbPage {
       this.workflowId = navParams.get('workflowId');
       this.actMgrId = navParams.get('actMgrId');
       this.jobTitle = navParams.get('jobTitle');
-      this.interviewType = navParams.get('interviewType');
+     // this.interviewType = navParams.get('interviewType');
       this.token = this.util.getToken();
       this.loginUser = this.util.getSessionUser();
       this.getCandidatesFromDb();
-      console.log("interviewType",this.interviewType)
+     // console.log("interviewType",this.interviewType)
   }
 
   ionViewDidLoad() {
@@ -120,8 +120,8 @@ gotoEditdetails(details){
 addCandidate(){
   
   
-  let chooseModal = this.modalCtrl.create(SelectCandidateDbModalPage,{reqId:this.reqId,selecteddetails:this.selecteddetails,interviewType:this.interviewType});
-   console.log("gggggggggggggggggggginterviewType",this.interviewType);
+  let chooseModal = this.modalCtrl.create(SelectCandidateDbModalPage,{reqId:this.reqId,selecteddetails:this.selecteddetails});
+   
     chooseModal.present(); 
 }
 

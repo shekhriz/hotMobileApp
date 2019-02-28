@@ -25,6 +25,7 @@ export class RequirementPopoverComponent {
   details:any;
   interviewType:string;
   interviewArray:Array<Object> = [];
+  primarySkill:any;
   
   constructor(  public navCtrl: NavController, 
                 public navParams: NavParams,
@@ -39,6 +40,7 @@ export class RequirementPopoverComponent {
                 this.workflowId = navParams.get('workflowId');
                 this.actMgrId = navParams.get('actMgrId');
                 this.jobTitle = navParams.get('jobTitle');
+                this.primarySkill = navParams.get('primarySkill');
                 this.addNoMoreCandidates = navParams.get('addNoMoreCandidates');
                 this.lastMileStone = navParams.get('lastMileStone');
                 this.token = this.util.getToken();
@@ -52,9 +54,9 @@ export class RequirementPopoverComponent {
 
 candidateReq(){
   this.viewCtrl.dismiss();
-  this.appCtrl.getRootNav().push(CandidatePage,{reqId:this.requirementId, workflowId:this.workflowId,actMgrId:  this.actMgrId,jobTitle:this.jobTitle, interviewType:this.interviewArray });
+  this.appCtrl.getRootNav().push(CandidatePage,{reqId:this.requirementId, workflowId:this.workflowId,actMgrId:  this.actMgrId,jobTitle:this.jobTitle, interviewType:this.interviewArray ,primarySkill:this.primarySkill});
 //  console.log("bjjjjjj",this.requirementId)
-console.log("interviewTypekk",this.interviewType)
+console.log("workflowId",this.workflowId)
 
 }
 questionAdd(){

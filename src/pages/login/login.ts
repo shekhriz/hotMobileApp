@@ -64,15 +64,27 @@ export class LoginPage {
     .then((token:any) => {
       this.util.saveToken(token.token);
       this.util.saveTokenTime(new Date().getTime());
+      this.restProvider.newLogin(jsonData,token.token)
+      .then(data => {
+        this.util.saveSessionUser(data);
+        loading.dismiss();
+        this.util.showToast("Successfully Login.","SUCCESS");
+        this.navCtrl.push(HomePage);
+      },error => {
+          loading.dismiss();
+          this.util.showToast("Something went wrong.","ERROR");
+          console.log(error);
+      });
+
         this.restProvider.login(jsonData,token.token)
         .then(data => {
           this.util.saveSessionUser(data);
-          loading.dismiss();
-          this.util.showToast("Successfully Login.","SUCCESS");
-          this.navCtrl.push(HomePage);
+        //  loading.dismiss();
+         // this.util.showToast("Successfully Login.","SUCCESS");
+        //  this.navCtrl.push(HomePage);
         },error => {
-            loading.dismiss();
-            this.util.showToast("Something went wrong.","ERROR");
+          //  loading.dismiss();
+         //   this.util.showToast("Something went wrong.","ERROR");
             console.log(error);
         });
     },error => {

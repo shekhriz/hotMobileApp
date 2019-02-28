@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-navbar hideBackButton>
+    <div class="header">
+      <div class="left"></div>
+      <div class="center">
+        <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
+
+        
+      </div>
+      <div class="rigth">
+        <ion-icon ios="ios-close" md="md-close" (click)="cancelData()"></ion-icon>
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+    
+   
+   <div class="modal_body" >
+      <div class="form-container">
+        <div class="scroll-content">
+          <div class="heading">
+            <h2 >Recorded By: {{user.firstName}}  {{user.lastName}} </h2>
+          </div>
+          <hr>
+        <div>
+
+        </div>
+          <hr>
+          <div class="row" >
+              <video width="100%" *ngIf="user.videoLink != null" height="240" controls src="{{user.videoLink}}.mp4">
+                
+              </video>
+              <h2 *ngIf="user.videoLink == null">Video is not Available</h2>
+          </div>
+          <div class="row">
+            <div class="col">
+               <h3 >Description:  {{user.description}}</h3>
+            </div>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+    
+</ion-content>
+<ion-footer class="commonFooter">
+  <button ion-button full color='danger' (click)='cancelData()'>Close</button>
+  
+</ion-footer>

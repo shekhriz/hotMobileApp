@@ -4,6 +4,12 @@ import { UtilsProvider } from '../../providers/utils/utils';
 import { LoginPage } from '../../pages/login/login';
 import { SettingsPage } from '../../pages/settings/settings';
 import {App} from 'ionic-angular';
+import { ProfilePage }  from '../../pages/profile/profile';
+import { SkillManagementPage }  from '../../pages/skill-management/skill-management';
+import { ChangePasswordPage }  from '../../pages/change-password/change-password';
+import { VideoPage }  from '../../pages/video/video';
+
+
 /**
  * Generated class for the PopoverComponent component.
  * Auther: Shekh Rizwan
@@ -25,11 +31,18 @@ export class PopoverComponent {
     this.viewCtrl.dismiss();
     if(pageName === "SETTINGS"){
       this.app.getActiveNav().setRoot(SettingsPage);
+
     }else if(pageName === "PROFILE"){
+      this.app.getActiveNav().setRoot(ProfilePage);
+
+    }else if(pageName === "SKILLS"){
+      this.app.getActiveNav().setRoot(SkillManagementPage);     
 
     }else if(pageName === "VIDEOS"){
+      this.app.getActiveNav().setRoot(VideoPage);     
       
     }else if(pageName === "CHANGE PASSWORD"){
+      this.app.getActiveNav().setRoot(ChangePasswordPage);     
       
     }
   }
@@ -39,5 +52,6 @@ export class PopoverComponent {
       this.util.removeAllLocalStorage();
       this.app.getActiveNav().setRoot(LoginPage);
   }
+
 
 }

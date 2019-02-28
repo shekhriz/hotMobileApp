@@ -53,7 +53,7 @@
           
           </ion-card-content>
           </ion-card>
-          <h2>Interview codes        </h2>
+          <h2>Screener Feedback          </h2>
           <hr>
           <ion-card class="card-panel2">
             <ion-card-content class="slide-body3"  > 
@@ -97,104 +97,26 @@
             <h2>Requirement Skills Rating  </h2>
             <hr>
             <ion-card class="card-panel2">
-              <ion-card-content class="slide-body3"  > 
+              <ion-card-content class="slide-body3" *ngFor ="let sub of subArray"  > 
                 
                     <div style="font-size: 17px; font-weight: bold;">
-                        <ion-label class="_black">Javascript </ion-label>
+                        <ion-label class="_black">{{sub.skill}} </ion-label>
                       <div>
-                      <ion-label  *ngIf="Js_score >= '0' && Js_score <= '20' " class="_red">Novice </ion-label>
-                      <ion-label  *ngIf="Js_score >= '21' && Js_score <= '40' " class="_blue">Average</ion-label>
-                      <ion-label *ngIf="Js_score >= '41' && Js_score <= '60' "  class="_blue">Good</ion-label>
-                      <ion-label  *ngIf="Js_score >= '61' && Js_score <= '80' " class="_green">Expert</ion-label>
-                      <ion-label *ngIf="Js_score >= '81' && Js_score <= '100' "  class="_green">Guru</ion-label>
+                       <ion-label  *ngIf="sub.score >= '1' && sub.score <= '20' " class="_red">Novice </ion-label>
+                      <ion-label  *ngIf="sub.score >= '21' && sub.score <= '40' " class="_blue">Average</ion-label>
+                      <ion-label *ngIf="sub.score >= '41' && sub.score <= '60' "  class="_blue">Good</ion-label>
+                      <ion-label  *ngIf="sub.score >= '61' && sub.score <= '80' " class="_green">Expert</ion-label>
+                      <ion-label *ngIf="sub.score >= '81' && sub.score <= '100' "  class="_green">Guru</ion-label>
                       <ion-label style="text-align:center"></ion-label>
-                      <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Js_score" >
+                      <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="sub.score" >
                           <ion-label range-left>0</ion-label>
                           <ion-label range-right>100</ion-label>
                       </ion-range>
                       </div>
                       
                   </div>
-                  <div style="font-size: 17px; font-weight: bold;">
-                      <ion-label class="_black">HTML </ion-label>
-                    <div>
-                    <ion-label  *ngIf="Html_score >= '0' && Html_score <= '20' " class="_red">Novice </ion-label>
-                    <ion-label  *ngIf="Html_score >= '21' && Html_score <= '40' " class="_blue">Average</ion-label>
-                    <ion-label *ngIf="Html_score >= '41' && Html_score <= '60' "  class="_blue">Good</ion-label>
-                    <ion-label  *ngIf="Html_score >= '61' && Html_score <= '80' " class="_green">Expert</ion-label>
-                    <ion-label *ngIf="Html_score >= '81' && Html_score <= '100' "  class="_green">Guru</ion-label>
-                    <ion-label style="text-align:center"></ion-label>
-                    <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Html_score" >
-                        <ion-label range-left>0</ion-label>
-                        <ion-label range-right>100</ion-label>
-                    </ion-range>
-                    </div>
-                    
-                </div>
-                <div style="font-size: 17px; font-weight: bold;">
-                    <ion-label class="_black">Scrum master </ion-label>
-                  <div>
-                  <ion-label  *ngIf="Scrum_score >= '0' && Scrum_score <= '20' " class="_red">Novice </ion-label>
-                  <ion-label  *ngIf="Scrum_score >= '21' && Scrum_score <= '40' " class="_blue">Average</ion-label>
-                  <ion-label *ngIf="Scrum_score >= '41' && Scrum_score <= '60' "  class="_blue">Good</ion-label>
-                  <ion-label  *ngIf="Scrum_score >= '61' && Scrum_score <= '80' " class="_green">Expert</ion-label>
-                  <ion-label *ngIf="Scrum_score >= '81' && Scrum_score <= '100' "  class="_green">Guru</ion-label>
-                  <ion-label style="text-align:center"></ion-label>
-                  <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Scrum_score" >
-                      <ion-label range-left>0</ion-label>
-                      <ion-label range-right>100</ion-label>
-                  </ion-range>
-                  </div>
                   
-              </div>
-              <div style="font-size: 17px; font-weight: bold;">
-                  <ion-label class="_black">NodeJs </ion-label>
-                <div>
-                <ion-label  *ngIf="NodeJs_score >= '0' && NodeJs_score <= '20' " class="_red">Novice </ion-label>
-                <ion-label  *ngIf="NodeJs_score >= '21' && NodeJs_score <= '40' " class="_blue">Average</ion-label>
-                <ion-label *ngIf="NodeJs_score >= '41' && NodeJs_score <= '60' "  class="_blue">Good</ion-label>
-                <ion-label  *ngIf="NodeJs_score >= '61' && NodeJs_score <= '80' " class="_green">Expert</ion-label>
-                <ion-label *ngIf="NodeJs_score >= '81' && NodeJs_score <= '100' "  class="_green">Guru</ion-label>
-                <ion-label style="text-align:center"></ion-label>
-                <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="NodeJs_score" >
-                    <ion-label range-left>0</ion-label>
-                    <ion-label range-right>100</ion-label>
-                </ion-range>
-                </div>
-                
-            </div>
-              <div style="font-size: 17px; font-weight: bold;">
-                  <ion-label class="_black">Css </ion-label>
-                <div>
-                <ion-label  *ngIf="Css_score >= '0' && Css_score <= '20' " class="_red">Novice </ion-label>
-                <ion-label  *ngIf="Css_score >= '21' && Css_score <= '40' " class="_blue">Average</ion-label>
-                <ion-label *ngIf="Css_score >= '41' && Css_score <= '60' "  class="_blue">Good</ion-label>
-                <ion-label  *ngIf="Css_score >= '61' && Css_score <= '80' " class="_green">Expert</ion-label>
-                <ion-label *ngIf="Css_score >= '81' && Css_score <= '100' "  class="_green">Guru</ion-label>
-                <ion-label style="text-align:center"></ion-label>
-                <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Css_score" >
-                    <ion-label range-left>0</ion-label>
-                    <ion-label range-right>100</ion-label>
-                </ion-range>
-                </div>
-                
-            </div>
-            <div style="font-size: 17px; font-weight: bold;">
-                <ion-label class="_black">Angular Js </ion-label>
-              <div>
-              <ion-label  *ngIf="Angular_score >= '0' && Angular_score <= '20' " class="_red">Novice </ion-label>
-              <ion-label  *ngIf="Angular_score >= '21' && Angular_score <= '40' " class="_blue">Average</ion-label>
-              <ion-label *ngIf="Angular_score >= '41' && Angular_score <= '60' "  class="_blue">Good</ion-label>
-              <ion-label  *ngIf="Angular_score >= '61' && Angular_score <= '80' " class="_green">Expert</ion-label>
-              <ion-label *ngIf="Angular_score >= '81' && Angular_score <= '100' "  class="_green">Guru</ion-label>
-              <ion-label style="text-align:center"></ion-label>
-              <ion-range  style="height: 8px;text-align: center;"color="dark"  [(ngModel)]="Angular_score" >
-                  <ion-label range-left>0</ion-label>
-                  <ion-label range-right>100</ion-label>
-              </ion-range>
-              </div>
-              
-            </div>
+  
             </ion-card-content>
           </ion-card>
     </div> 

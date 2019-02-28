@@ -192,7 +192,7 @@
                 <div class="container" *ngIf="i<5">
                 <div class="row-table"  >
                     <div class = "col"> 
-                      <span class="panel-heading" (click)="openHomeModal(value)" > {{rec.fname}}</span></div>
+                      <span class="panel-heading" (click)="gotoEditUser(rec.recId)" > {{rec.fname}}</span></div>
                 </div>
                 <div class = "row" >
                     <div class = "col" ><b>Submission </b>
@@ -240,7 +240,7 @@
                 <div class="container" *ngIf="i<5">
                 <div class="row-table"  >
                     <div class = "col"> 
-                      <span class="panel-heading" (click)="openHomeModal(value)" > {{ts.fname}}</span></div>
+                      <span class="panel-heading" (click)="gotoEditUser(ts.tsId)" > {{ts.fname}}</span></div>
                 </div>
                 <div class = "row" >
                     <div class = "col" ><b>Screened </b>

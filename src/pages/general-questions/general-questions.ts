@@ -20,7 +20,10 @@ export class GeneralQuestionsPage {
   reqId:string;
   token:string;
   generals:Array<Object> = [];
+  technicals:string;
 
+  technicalModule:boolean;
+  generalModule: boolean = true;
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public restProvider: RestProvider,
@@ -29,6 +32,7 @@ export class GeneralQuestionsPage {
     this.token = this.util.getToken();
     this.reqId = navParams.get('reqId');
     this.genquestionById();
+    this.techquestionById();
     }
   ionViewDidLoad() {
     console.log('ionViewDidLoad GeneralQuestionsPage');
@@ -57,8 +61,33 @@ export class GeneralQuestionsPage {
     });
     
   }
-  gotoTechnicals(){
-    this.navCtrl.push(TechnicalQuestionPage,{reqId:this.reqId});
-  console.log("adyasa",this.reqId);
+  techquestionById(){
+  
+    let loading = this.loadingCtrl.create({
+      content: 'Please wait...'
+    });
+    
+    loading.present();
+    this.restProvider.technicalQuestions(this.token,this.reqId)
+    .then((data:any) => {
+        this.technicals = data.positionTechnicalQuestionList;
+        loading.dismiss();
+      console.log("hhhhhasdsdhh",this.technicals);
+      
+    },error => {
+        this.util.showToast("Something went wrong.","ERROR");
+        loading.dismiss();
+       // console.log(error);
+    });
+    
   }
+  gotoGeneral(){
+    this.technicalModule = false;
+    this.generalModule = true;
+  }
+  gotoTechnical(){
+    this.generalModule = false;
+    this.technicalModule = true;
+  }
+
 }

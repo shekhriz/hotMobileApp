@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,LoadingController,ViewController,Mo
 import { RestProvider } from '../../providers/rest/rest';
 import { UtilsProvider } from '../../providers/utils/utils';
 import { HomePage } from '../home/home';
+import { EditUserPage }  from '../../pages/edit-user/edit-user';
 
 /**
  * Generated class for the ViewAllScreenerPage page.
@@ -68,5 +69,9 @@ export class ViewAllScreenerPage {
     this.navCtrl.push(HomePage)
 
   }
-
+  gotoEditUser(id){
+   
+    this.navCtrl.push(EditUserPage,{userId:id});
+console.log("id",id)
+  }
 }

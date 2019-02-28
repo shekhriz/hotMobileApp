@@ -22,6 +22,7 @@ export class FeedbackFormPage {
   submissionType:string;
   loginUser:any;
   result:any;
+  result2:any;
   ZoomResponse:any;
   value:any;
   topic:string;
@@ -31,7 +32,7 @@ export class FeedbackFormPage {
   skills:string;
   skillType:string;
   candidateSkillsSet:any=[];
-  skillArray:Array<Object> = [];
+  subArray:Array<Object> = [];
   firstName:string;
   lastName:string;
   emailId:string;
@@ -40,12 +41,11 @@ export class FeedbackFormPage {
   score:string='';
   comment:string;
   finalVerdictChange:string;
-  Js_score:string;
-  Html_score:string;
-  Scrum_score:string;
-  NodeJs_score:string;
-  Css_score:string;
-  Angular_score:string;
+  details:any;
+  secondarySkill:string;
+  primarySkill:string;
+  workflowId:string;
+  
   constructor(public navCtrl: NavController,
     public util: UtilsProvider,
     public loadingCtrl: LoadingController,
@@ -54,6 +54,7 @@ export class FeedbackFormPage {
     this.token = this.util.getToken();
     this.cId =navParams.get('cId');
     this.reqId =navParams.get('reqId');
+    
     this.loginUser = this.util.getSessionUser(); 
     this.submissionType =navParams.get('submissionType');
     this.candidateLink =navParams.get('candidateLink').replace('https://interviews.skype.com/interviews?code=',"");
@@ -72,6 +73,50 @@ export class FeedbackFormPage {
     });
     
     loading.present();
+    this.restProvider.editRequirements(this.reqId,this.token)
+    .then((res:any) => {
+      this.details= res;
+      this.workflowId = this.details.workflowId;
+      this.primarySkill =this.details.primarySkill;
+      this.secondarySkill =this.details.secondarySkill;
+
+
+      let primaryskillname ;
+      let secondaryskillname;
+      primaryskillname = (this.primarySkill.split(','));
+      secondaryskillname = this.secondarySkill.split(",");
+
+      Object.keys(primaryskillname).forEach(key=> {
+        if(primaryskillname[key] != ""){
+          this.subArray.push({
+                'skill':primaryskillname[key],
+                'score':0,
+                'candidateId': this.cId,
+                'positionId':this.reqId
+          });
+        }
+     
+      });
+
+      Object.keys(secondaryskillname).forEach(key=> {
+        if(secondaryskillname[key] != ""){
+          this.subArray.push({
+                'skill':secondaryskillname[key],
+                'score':0,
+                'candidateId': this.cId,
+                'positionId':this.reqId
+          });
+        }
+       
+       
+      });
+      console.log('rizwan',this.subArray);
+
+     this.subArray = this.subArray;
+      
+    },error => {
+      loading.dismiss();
+    });
     this.restProvider.responseBycandidateId(this.token,this.cId)
     .then((res:any) => {
       this.result = res['Candidate Details'];
@@ -81,98 +126,74 @@ export class FeedbackFormPage {
       this.cellPhoneNumber = this.result.cellPhoneNumber;
       this.currentLocation = this.result.currentLocation;
       this.candidateSkillsSet = this.result.candidateSkillsSet[0];
-      this.skillType = this.result.candidateSkillsSet[0].skillType;
-      this.skills =  this.result.candidateSkillsSet[0].skills;
+      this.skillType = this.result.candidateSkillsSet.skillType;
+      this.skills =  this.result.candidateSkillsSet.skills;
      
 
       loading.dismiss();
     },error => {
       loading.dismiss();
     });
-    // this.restProvider.interviewResponse(this.token,this.candidateLink,this.reqId,this.cId)
-    // .then((res:any) => {
-    //   this.result = res;
-    //   this.ZoomResponse =this.result.ZoomResponse
-    //   this.value =JSON.parse(this.ZoomResponse);
-    //   this.topic = this.value.topic;
-    //   this.start_time = this.value.start_time;
-    //   this.start_url = (this.value.start_url).substring(0,27);
-    //   this.candidateObject = this.result.candidateObject;
-    //   this.candidateSkillsSet = this.result.candidateObject.candidateSkillsSet[0];
-    //   this.skills =  this.candidateSkillsSet.skills;
-    //   this.skillType =  this.candidateSkillsSet.skillType;
-    //   console.log(" this.primarySkill", this.skills);
-    //   console.log(" this.secondarySkill", this.skillType);
-    //   console.log(" this.candidateSkillsSet", this.candidateSkillsSet);
-
-    //   let skillname ;
-    //  skillname = (this.skillType);
-     
-    //   Object.keys(skillname).forEach(key=> {
-    //     if(skillname[key] == 'PrimarySkill'){
-    //       this.skills;
-    //       alert("hhh")
-    //     }else{
-    //       this.skills;
-    //       alert("......")
-    //     }
+    if(this.submissionType == 'Zoom'){
+      this.restProvider.interviewResponse(this.token,this.candidateLink,this.reqId,this.cId)
+      .then((res:any) => {
+        this.result2 = res;
+        this.ZoomResponse =this.result2.ZoomResponse
+        this.value =JSON.parse(this.ZoomResponse);
+        this.topic = this.value.topic;
+        this.start_time = this.value.start_time;
+        this.start_url = (this.value.start_url).substring(0,27);
+        this.candidateObject = this.result2.candidateObject;
+        this.candidateSkillsSet = this.result2.candidateObject.candidateSkillsSet[0];
+        this.skills =  this.candidateSkillsSet.skills;
+        this.skillType =  this.candidateSkillsSet.skillType;
+        console.log(" this.primarySkill", this.skills);
+        console.log(" this.secondarySkill", this.skillType);
+        console.log(" this.candidateSkillsSet", this.candidateSkillsSet);
+  
+        let skillname ;
+       skillname = (this.skillType);
        
-    //   });
-
-     
-    //   console.log('this.value',this.value);
-    //   loading.dismiss();
-      
-    // },error => {
-    //   loading.dismiss();
-    // });  
+        Object.keys(skillname).forEach(key=> {
+          if(skillname[key] == 'PrimarySkill'){
+            this.skills;
+            alert("hhh")
+          }else{
+            this.skills;
+            alert("......")
+          }
+         
+        });
+  
+       
+        console.log('this.value',this.value);
+        loading.dismiss();
+        
+      },error => {
+        loading.dismiss();
+      });  
+    }
+   
   }
 
   submit(){
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-   
-    let ptypes = [];
-    Object.keys(this.skillArray).forEach(key=> {
-      if(this.skillArray[key].skill == "javascript"){
-        ptypes.push(this.Js_score);
-
-      }
-      if(this.skillArray[key].skill == "html"){
-        ptypes.push(this.Html_score);
-
-      }
-      if(this.skillArray[key].skill == "scrum master"){
-        ptypes.push(this.Scrum_score);
-
-      }
-      if(this.skillArray[key].skill == "node js"){
-        ptypes.push(this.NodeJs_score);
-
-      }
-      if(this.skillArray[key].skill == "css"){
-        ptypes.push(this.Css_score);
-
-      }
-      if(this.skillArray[key].skill == "angular js"){
-        ptypes.push(this.Angular_score);
-
-      }
-      this.skillArray.push({
-        'candidateId':this.cId,
-        'positionId':this.reqId,
-        'score':this.score,
-        
-      });
-  });
+    if(this.comment == undefined || this.comment == ""){
+      this.util.showToast("Please enter comment.","ERROR");
+      return;
+    }
+  
+    if(this.finalVerdictChange == undefined || this.finalVerdictChange == "" ){
+      this.util.showToast("Please select Feedback.","ERROR");
+      return;
+      
+    }
+ 
       let jsonData = {
           "cId": this.cId,
-          candidateSelfRatingResponseList:[{
-            'candidateId':this.cId,
-            'positionId' :this.reqId,
-          }]
-          ,
+          candidateSelfRatingResponseList:this.subArray,
           "feedBack": this.comment,
           "notes":"",
           "other":"",
@@ -183,12 +204,12 @@ export class FeedbackFormPage {
           "userName":this.loginUser.userName
 
         }
-       
+ 
         console.log("json",jsonData);
         loading.present();   
           this.restProvider.screenerFeedBack(this.token,jsonData)
             .then(data => {
-             
+      
               loading.dismiss();
               this.util.showToast("Successfully Submitted.","SUCCESS");
               // console.log("data",data); 
