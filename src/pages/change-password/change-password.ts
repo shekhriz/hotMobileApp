@@ -4,6 +4,7 @@ import { UtilsProvider } from '../../providers/utils/utils';
 import { RestProvider } from '../../providers/rest/rest';
 import { LoginPage } from '../../pages/login/login';
 import {App} from 'ionic-angular';
+import { HomePage } from '../../pages/home/home';
 
 /**
  * Generated class for the ChangePasswordPage page.
@@ -83,5 +84,7 @@ export class ChangePasswordPage {
       this.util.showToast("Something went wrong.","ERROR");
     });
   }
-
+  goBack(){
+    this.navCtrl.push(HomePage);
+  }
 }
