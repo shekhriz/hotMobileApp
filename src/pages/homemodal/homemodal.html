@@ -17,20 +17,26 @@
   
 <ion-content padding>
   <timeline endIcon="lock">
-    <timeline-item *ngFor="let item of items,let i = index">
-      <!-- <timeline-time [time]="item.time"></timeline-time> -->
+    <timeline-item *ngFor="let item of items,let i = index" >
+      <!-- <timeline-time [time]="item.time"></timeline-time>  -->
       <ion-icon  [name]="item.icon"></ion-icon>  
       <ion-icon class="icon2" [name]="item.icon2"></ion-icon>  
       <ion-icon class="icon3" [name]="item.icon3"></ion-icon>  
-      <ion-card style="width:200px;height: 40px;text-align: center;font-size: 17px;
-      padding-top: 8px;">
-        <!-- <ion-card-header style="width:200px"> -->
-          {{item.title}}
-        <!-- </ion-card-header> -->
-        <!-- <ion-card-content>
+      <div style="display:flex">
+        <ion-card style="flex: 6;
+        padding-top: 8px;">
+          <!-- <ion-card-header style="width:200px"> -->
+            {{item.title}}
+          <!-- </ion-card-header>
+           <ion-card-content> -->
+            
+          <!-- </ion-card-content>  -->
+        </ion-card >
+        <h6 style="flex:4" >
           {{item.content}}
-        </ion-card-content> -->
-      </ion-card>
+        </h6>
+      </div>
+      
     </timeline-item>
 
   </timeline>

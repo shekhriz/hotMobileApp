@@ -17,12 +17,14 @@ export class HomemodalPage {
   reruirements:any;
   lastMileStone:string;
   addNoMoreCandidateDate:string;
+  CREATED_DATE:any;
   items:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl : ViewController) {
       this.reruirements = navParams.get('reruirements');
-      this.lastMileStone = this.reruirements.lastMileStone
-      this.addNoMoreCandidateDate = this.reruirements.addNoMoreCandidateDate
+      this.lastMileStone = this.reruirements.lastMileStone;
+      this.addNoMoreCandidateDate = this.reruirements.addNoMoreCandidateDate;
+      this.CREATED_DATE = (this.reruirements.CREATED_DATE);
     console.log('reruirements',this.reruirements)
 
   
@@ -30,7 +32,7 @@ export class HomemodalPage {
    
   //   {
   //     title: 'Create Requirement',
-  //    // content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
     
@@ -38,7 +40,7 @@ export class HomemodalPage {
   //   },
   //   {
   //     title: 'Add Screener ',
-  //     //content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //     content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
      
@@ -46,39 +48,39 @@ export class HomemodalPage {
   //   },
   //   {
   //     title: 'Add Questions',
-  //    // content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
     
   //     time: {title: 'Short Text'}
   //   }, {
   //     title: 'Submit Questions',
-  //    // content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
    
   //     time: {title: 'Short Text'}
   //   }, {
   //     title: 'Approve Questions',
-  //    // content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
   //     time: {title: 'Short Text'}
   //   }, {
   //     title: 'Add Candidates',
-  //   //  content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //          content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     icon2:'checkmark',
   //     time: {title: 'Short Text'}
   //   }, {
   //     title: 'Add No more Candidates',
-  //    // content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //     content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //     //icon2:'checkmark',
   //     time: {title: 'Short Text'}
   //   }, {
   //     title: 'Close Requirements',
-  //   //  content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
+  //          content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
   //     icon: 'lock',
   //    // icon2:'checkmark',
   //     time: {title: 'Short Text'}
@@ -94,29 +96,38 @@ export class HomemodalPage {
      
         {
           title: 'Create Requirement',
+          content:this.CREATED_DATE,  
           icon: 'checkmark',
+        //  time: {title: new Date(this.CREATED_DATE)}
         },
         {
           title: 'Add Screener ',
+          content: 'Parsley ',  
           icon: 'checkmark',
         },
         {
           title: 'Add Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Submit Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
             title: 'Add No more Candidates',
+            content: 'Parsley ',  
              icon2: 'radio-button-off',
         }, {
           title: 'Close Requirements',
+          content: 'Parsley ',  
           icon2: 'lock',
         }
       ]
@@ -125,29 +136,37 @@ export class HomemodalPage {
      
         {
           title: 'Create Requirement',
+          content:  this.CREATED_DATE,  
           icon: 'checkmark',
         },
         {
           title: 'Add Screener ',
+          content: 'Parsley ',  
           icon: 'checkmark',
         },
         {
           title: 'Add Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Submit Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
+          content: 'Parsley ',  
           icon: 'checkmark',
         }, {
             title: 'Add No more Candidates',
+            content: 'Parsley ',  
              icon3: 'radio-button-on',
         }, {
           title: 'Close Requirements',
+          content: 'Parsley ',  
           icon2: 'lock',
         }
       ]
@@ -208,7 +227,7 @@ export class HomemodalPage {
         icon: 'checkmark',
       }, {
         title: 'Add Candidates',
-        icon2: 'checkmark',
+        icon: 'checkmark',
       }, {
         title: 'Add No more Candidates',
         icon2: 'radio-button-off',
@@ -330,10 +349,10 @@ export class HomemodalPage {
         icon2: 'radio-button-off',
       }, {
         title: 'Submit Questions',
-        icon: 'checkmark',
+        icon2: 'lock',
       }, {
         title: 'Approve Questions',
-        icon2: 'radio-button-off',
+        icon2: 'lock',
       }, {
         title: 'Add Candidates',
         icon2: 'lock',
@@ -362,7 +381,7 @@ export class HomemodalPage {
           title: 'Add Questions',
           icon2: 'lock',
         }, {
-          title2: 'Submit Questions',
+          title: 'Submit Questions',
           icon2: 'lock',
         }, {
           title: 'Approve Questions',
@@ -427,7 +446,7 @@ export class HomemodalPage {
         title: 'Add Questions',
         icon: 'checkmark',
       }, {
-        title2: 'Submit Questions',
+        title: 'Submit Questions',
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
