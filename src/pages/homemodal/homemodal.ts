@@ -18,6 +18,11 @@ export class HomemodalPage {
   lastMileStone:string;
   addNoMoreCandidateDate:string;
   CREATED_DATE:any;
+  screenerAddedDate:string;
+  addCandidateDate:string;
+  questionApprovedDate:string;
+  questionSubmittedDate:string;
+  questionsAddedDate:string;
   items:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl : ViewController) {
@@ -25,7 +30,14 @@ export class HomemodalPage {
       this.lastMileStone = this.reruirements.lastMileStone;
       this.addNoMoreCandidateDate = this.reruirements.addNoMoreCandidateDate;
       this.CREATED_DATE = (this.reruirements.CREATED_DATE);
-    console.log('reruirements',this.reruirements)
+      this.screenerAddedDate =this.reruirements.screenerAddedDate;
+      this.addCandidateDate = this.reruirements.addCandidateDate;
+      this.questionApprovedDate =this.reruirements.questionApprovedDate;
+      this.questionSubmittedDate = this.reruirements.questionSubmittedDate;
+      this.questionsAddedDate =  this.reruirements.questionsAddedDate;
+      this.questionsAddedDate =  this.reruirements.questionsAddedDate;
+      this.questionsAddedDate =  this.reruirements.questionsAddedDate;
+    console.log('CREATED_DATE',this.CREATED_DATE)
 
   
   // this.items = [
@@ -102,32 +114,32 @@ export class HomemodalPage {
         },
         {
           title: 'Add Screener ',
-          content: 'Parsley ',  
+          content: this.screenerAddedDate,  
           icon: 'checkmark',
         },
         {
           title: 'Add Questions',
-          content: 'Parsley ',  
+          content: this.questionApprovedDate,  
           icon: 'checkmark',
         }, {
           title: 'Submit Questions',
-          content: 'Parsley ',  
+          content: this.questionSubmittedDate,  
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
-          content: 'Parsley ',  
+          content: this.questionsAddedDate,  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
-          content: 'Parsley ',  
+          content:this.addCandidateDate,  
           icon: 'checkmark',
         }, {
             title: 'Add No more Candidates',
-            content: 'Parsley ',  
+          //  content: this.CREATED_DATE,  
              icon2: 'radio-button-off',
         }, {
           title: 'Close Requirements',
-          content: 'Parsley ',  
+        //  content: this.CREATED_DATE,  
           icon2: 'lock',
         }
       ]
@@ -141,32 +153,32 @@ export class HomemodalPage {
         },
         {
           title: 'Add Screener ',
-          content: 'Parsley ',  
+          content:this.screenerAddedDate,  
           icon: 'checkmark',
         },
         {
           title: 'Add Questions',
-          content: 'Parsley ',  
+          content: this.questionApprovedDate,  
           icon: 'checkmark',
         }, {
           title: 'Submit Questions',
-          content: 'Parsley ',  
+          content: this.questionSubmittedDate,  
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
-          content: 'Parsley ',  
+          content: this.questionsAddedDate,  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
-          content: 'Parsley ',  
+          content: this.addCandidateDate,  
           icon: 'checkmark',
         }, {
             title: 'Add No more Candidates',
-            content: 'Parsley ',  
+           // content: 'Parsley ',  
              icon3: 'radio-button-on',
         }, {
           title: 'Close Requirements',
-          content: 'Parsley ',  
+          //content: 'Parsley ',  
           icon2: 'lock',
         }
       ]

@@ -22,21 +22,19 @@
       <ion-icon  [name]="item.icon"></ion-icon>  
       <ion-icon class="icon2" [name]="item.icon2"></ion-icon>  
       <ion-icon class="icon3" [name]="item.icon3"></ion-icon>  
-      <div style="display:flex">
-        <ion-card style="flex: 6;
+      <!-- <div style="display:flex"> -->
+        <ion-card style="width:273px;height: 45px;text-align: center;font-size: 17px;
         padding-top: 8px;">
-          <!-- <ion-card-header style="width:200px"> -->
+          <span>
             {{item.title}}
-          <!-- </ion-card-header>
-           <ion-card-content> -->
-            
-          <!-- </ion-card-content>  -->
+          </span>
+          <h6 >
+            {{item.content |date:'medium'}} IST
+          </h6>
         </ion-card >
-        <h6 style="flex:4" >
-          {{item.content}}
-        </h6>
-      </div>
-      
+        
+      <!-- </div>
+       -->
     </timeline-item>
 
   </timeline>
