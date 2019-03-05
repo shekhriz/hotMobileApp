@@ -5,21 +5,34 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-    <ion-navbar hideBackButton>
-      <div class="header">
-        <div class="left"></div>
-        <div class="center">
-          <img src="https://d2ue829my6ap69.cloudfront.net/images/Logo_white.png" alt="">
-        </div>
-        <div class="rigth">
-          <ion-icon ios="ios-close" md="md-close" (click)="closeModal()"></ion-icon>
-        </div>
-      </div>
-    </ion-navbar>
-  </ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>Candidate Past History</h1>
+          
+  </div>
 
+</ion-header>
 
-<ion-content padding>
   
+<ion-content padding>
+  <timeline endIcon="lock">
+    <timeline-item *ngFor="let item of items,let i = index">
+      <!-- <timeline-time [time]="item.time"></timeline-time> -->
+      <ion-icon  [name]="item.icon"></ion-icon>  
+      <ion-icon class="icon2" [name]="item.icon2"></ion-icon>  
+      <ion-icon class="icon3" [name]="item.icon3"></ion-icon>  
+      <ion-card style="width:200px;height: 40px;text-align: center;font-size: 17px;
+      padding-top: 8px;">
+        <!-- <ion-card-header style="width:200px"> -->
+          {{item.title}}
+        <!-- </ion-card-header> -->
+        <!-- <ion-card-content>
+          {{item.content}}
+        </ion-card-content> -->
+      </ion-card>
+    </timeline-item>
+
+  </timeline>
 
 </ion-content>

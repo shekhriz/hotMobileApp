@@ -140,11 +140,11 @@
               <div class="container" *ngIf="i<5" >
               <div class="row-table"  >
                   <div class = "col"> 
-                    <span class="panel-heading" (click)="openHomeModal(value)" > {{value.jobTitle}}</span></div>
+                    <span class="panel-heading"  > {{value.jobTitle}}</span></div>
               </div>
               <div class = "row" >
                   <div class = "col" ><b>Status </b>
-                    <span class="value" >{{value.lastMileStone}}</span>
+                    <span class="value"   (click)="openModal(value)" >{{value.lastMileStone}}</span>
                   </div>
                   <div class = "col" *ngIf="value.total"  ><b>Internal Sub. </b>
                     <span *ngIf="!value.answered"  >0</span >
@@ -176,7 +176,7 @@
         </ion-card> 
       </div>
    
-      <div class="card-container2">    
+      <div class="card-container2" >    
           <ion-card>
             <ion-card-content  class="blue-theme card-panel" (click)="hideRec()">   
                 <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon>  

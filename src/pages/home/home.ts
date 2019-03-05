@@ -9,6 +9,7 @@ import { RequirementsPage } from '../../pages/requirements/requirements';
 import { CandidateSidePage }  from '../../pages/candidate-side/candidate-side';
 import { ViewAllRecruiterPage }  from '../../pages/view-all-recruiter/view-all-recruiter';
 import { ViewAllScreenerPage }  from '../../pages/view-all-screener/view-all-screener';
+import { ViewAllRequirementsPage }  from '../../pages/view-all-requirements/view-all-requirements';
 import { EditUserPage }  from '../../pages/edit-user/edit-user';
 
 
@@ -127,10 +128,6 @@ console.log("id",id)
     this.hidets = !this.hidets;
   }
 
-  viewAllRequirements(){
-    this.navCtrl.push(RequirementsPage);
-  }
-
   gotoUsers(){
     this.navCtrl.push(UsersPage);
   }
@@ -146,6 +143,9 @@ console.log("id",id)
     this.navCtrl.push(CandidateSidePage);
 
   }
+  viewAllRequirements(){
+    this.navCtrl.push(ViewAllRequirementsPage);
+  }
   viewAllRecruiters(){
   this.navCtrl.push(ViewAllRecruiterPage);
 
@@ -153,6 +153,11 @@ console.log("id",id)
   viewAllScreener(){
   this.navCtrl.push(ViewAllScreenerPage);
     
+  }
+  openModal(reruirements){
+    let chooseModal = this.modalCtrl.create(HomemodalPage,{reruirements:reruirements});
+    console.log('lastMileStone',reruirements);
+    chooseModal.present(); 
   }
 
 }

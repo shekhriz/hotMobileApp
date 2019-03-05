@@ -97,6 +97,7 @@ import { SelectCandidateDbModalPage }  from '../pages/select-candidate-db-modal/
 import { AddNotesPage }  from '../pages/add-notes/add-notes';
 import { ViewAllRecruiterPage }  from '../pages/view-all-recruiter/view-all-recruiter';
 import { ViewAllScreenerPage }  from '../pages/view-all-screener/view-all-screener';
+import { ViewAllRequirementsPage }  from '../pages/view-all-requirements/view-all-requirements';
 import { FeedbackFormPage }  from '../pages/feedback-form/feedback-form';
 import { ProfilePage }  from '../pages/profile/profile';
 import { ApplicationSettingPage }  from '../pages/application-setting/application-setting';
@@ -107,10 +108,11 @@ import { ChangePasswordPage }  from '../pages/change-password/change-password';
 import { SkillManagementPage }  from '../pages/skill-management/skill-management';
 import { VideoPage }  from '../pages/video/video';
 import { VideoModalPage }  from '../pages/video-modal/video-modal';
+import { TimelineComponent } from '../components/timeline/timeline';
+import { TimelineTimeComponent } from '../components/timeline/timeline';
+import { TimelineItemComponent } from '../components/timeline/timeline';
 
-
-
-
+ 
 
 
 
@@ -200,6 +202,7 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
     AddNotesPage,
     ViewAllRecruiterPage,
     ViewAllScreenerPage,
+    ViewAllRequirementsPage,
     FeedbackFormPage,
     ProfilePage,
     ApplicationSettingPage,
@@ -209,8 +212,10 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
     ChangePasswordPage,
     SkillManagementPage,
     VideoPage,
-    VideoModalPage
-
+    VideoModalPage,
+    TimelineComponent,
+    TimelineTimeComponent,
+    TimelineItemComponent
   ],
 
   imports: [ 
@@ -268,6 +273,7 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
               { component: AddCandidateDbPage, segment: 'requirement-Display-Candidates' },
               { component: ViewAllRecruiterPage, segment: 'ViewAllRecruiters' },
               { component: ViewAllScreenerPage, segment: 'ViewAllScreener' },
+              { component: ViewAllRequirementsPage, segment: 'ViewAllRequirements' },
               { component: FeedbackFormPage, segment: 'FeedbackForm/:cId' },
               { component: ProfilePage, segment: 'Profile' },             
               { component: SettingsPage, segment: 'settings' },
@@ -366,6 +372,7 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
     AddNotesPage,
     ViewAllRecruiterPage,
     ViewAllScreenerPage,
+    ViewAllRequirementsPage,
     FeedbackFormPage,
     ProfilePage,
     ApplicationSettingPage,
@@ -375,7 +382,10 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
     ChangePasswordPage,
     SkillManagementPage,
     VideoPage,
-    VideoModalPage
+    VideoModalPage,
+    TimelineComponent,
+    TimelineTimeComponent,
+    TimelineItemComponent
 
   ],
   providers: [
