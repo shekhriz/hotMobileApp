@@ -7,8 +7,12 @@ import { LoginPage } from '../pages/login/login';
 import { HomePage } from '../pages/home/home';
 import { UtilsProvider } from '../providers/utils/utils';
 import { RestProvider } from '../providers/rest/rest';
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 @Component({
-  templateUrl: 'app.html'
+  templateUrl: 'app.html',
+  providers: [
+    ScreenOrientation
+]
 })
 export class MyApp {
   rootPage:any;
@@ -16,17 +20,22 @@ export class MyApp {
   userToken:any;
   userTokenStartTime:any;
 
+
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,
     public utilProvider: UtilsProvider,
     public alertCtrl: AlertController,
     public restProvider: RestProvider,
+    private screenOrientation: ScreenOrientation
     ) {
     platform.ready().then(() => {
+      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       this.user = this.utilProvider.getSessionUser();
       this.userToken = this.utilProvider.getToken();
       this.userTokenStartTime = this.utilProvider.getTokenTime();
+      
 
       if(this.userToken != undefined && this.userToken != null && this.userTokenStartTime != null && this.user != null) {
         this.rootPage = HomePage;
@@ -60,5 +69,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
+
   }
 }
