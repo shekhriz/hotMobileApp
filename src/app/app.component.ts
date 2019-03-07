@@ -47,7 +47,7 @@ export class MyApp {
         console.log("Token Start Time : " + this.userTokenStartTime);
         console.log("Token completed time : " + exactDiff + " min");
 
-        if(exactDiff < 30 && exactDiff > 25){
+        if(exactDiff < 60 && exactDiff > 55){
           this.restProvider.refreshToken(this.userToken)
           .then((response:any) =>{
             if(response.token != null){
@@ -58,7 +58,7 @@ export class MyApp {
             this.utilProvider.removeAllLocalStorage();
             this.rootPage = LoginPage;
           });
-        }else if(exactDiff >= 30){
+        }else if(exactDiff >= 60){
             this.utilProvider.showToast("Session Expired, please Login again.","TIMEOUT");
             this.utilProvider.removeAllLocalStorage();
             this.rootPage = LoginPage;

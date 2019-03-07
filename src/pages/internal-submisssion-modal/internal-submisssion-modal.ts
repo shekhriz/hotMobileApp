@@ -42,11 +42,11 @@ export class InternalSubmisssionModalPage {
     loading.present();
     this.restProvider.getRequirementCandidateStatics(this.token,this.positionId)
     .then( res=> {
-      this.internalData = res;
+      this.internalData = res;  
       console.log("this.accMgr",this.internalData)
-      loading.dismiss();
+      loading.dismiss();  
      
-    },error => {
+    },error => {   
       loading.dismiss();
     });
   }
