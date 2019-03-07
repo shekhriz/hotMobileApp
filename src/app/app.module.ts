@@ -111,8 +111,10 @@ import { VideoModalPage }  from '../pages/video-modal/video-modal';
 import { TimelineComponent } from '../components/timeline/timeline';
 import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
+import { InternalSubmisssionModalPage } from '../pages/internal-submisssion-modal/internal-submisssion-modal';
+import { ScreenStatusModalPage } from '../pages/screen-status-modal/screen-status-modal';
 
- 
+
 
 
 
@@ -215,7 +217,9 @@ import { TimelineItemComponent } from '../components/timeline/timeline';
     VideoModalPage,
     TimelineComponent,
     TimelineTimeComponent,
-    TimelineItemComponent
+    TimelineItemComponent,
+    InternalSubmisssionModalPage,
+    ScreenStatusModalPage
   ],
 
   imports: [ 
@@ -239,8 +243,8 @@ import { TimelineItemComponent } from '../components/timeline/timeline';
               { component: AddrequirementPage, segment: 'addrequirements' },
               { component: EditrequirementsPage, segment: 'editrequirements/:clientId' },
               { component: CandidatePage, segment: 'candidate/:reqId' },
-              { component: CandidateResponsePage, segment: 'CandidateResponse/:cId/:reqId/:workflowId' },
-              { component: CandidateDetailPage, segment: 'CandidateDetails/:cId/:reqId/:workflowId' },
+              { component: CandidateResponsePage, segment: 'CandidateResponse/:cId/:reqId' },
+              { component: CandidateDetailPage, segment: 'CandidateDetails/:cId/:reqId' },
               { component: OquestionPage, segment: 'gen-question/:cId/:reqId/:workflowId' },
               { component: SelfRatingPage, segment: 'ratings/:cId/:reqId/:workflowId' },
               { component: QuestionResponsePage, segment: 'questions/:cId/:reqId/:workflowId' },
@@ -385,7 +389,9 @@ import { TimelineItemComponent } from '../components/timeline/timeline';
     VideoModalPage,
     TimelineComponent,
     TimelineTimeComponent,
-    TimelineItemComponent
+    TimelineItemComponent,
+    InternalSubmisssionModalPage,
+    ScreenStatusModalPage
 
   ],
   providers: [

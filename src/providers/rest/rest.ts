@@ -1756,19 +1756,19 @@ disableCandidate(token,data){
   });
 }
 
-refresh(token){
-  return new Promise(resolve => {
-    this.http.get(this.apiUrl+'security/refresh',{
-      headers: new HttpHeaders().set('Authorization', token)
-              .append('Accept', 'application/json;odata=verbose')
-              .append('Content-Type','application/json')
-     }).subscribe(data => {
-      resolve(data);
-    }, err => {
-      console.log(err);
-    });
-  });
-}
+// refresh(token){
+//   return new Promise(resolve => {
+//     this.http.get(this.apiUrl+'security/refresh',{
+//       headers: new HttpHeaders().set('Authorization', token)
+//               .append('Accept', 'application/json;odata=verbose')
+//               .append('Content-Type','application/json')
+//      }).subscribe(data => {
+//       resolve(data);
+//     }, err => {
+//       console.log(err);
+//     });
+//   });
+// }
 candidateNotes(token,reqId,id,user){
   return new Promise(resolve => {
     this.http.get(this.apiUrl+'hot/requirement/candidate/notes/'+reqId+'/'+id+'/'+user.role,{
@@ -2018,5 +2018,19 @@ deleteVideo(token,id) {
       console.log(err);
     });
   });
+}
+
+getRequirementCandidateStatics(token,id){
+  return new Promise(resolve => {
+    this.http.get(this.apiUrl+'hot/getRequirementCandidateStatics/'+id,{
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(data => {
+      resolve(data);
+    }, err => {
+      console.log(err);
+    });
+  });  
 }
   }

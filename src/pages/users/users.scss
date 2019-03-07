@@ -29,12 +29,24 @@ page-users {
     }
     
     ion-content{
+        .list-md {
+            margin: 10px 0 16px;
+        } 
 
        
         ion-list{
+            
                 .body{
                     border-bottom: 1px solid #dedede;
                     display: flex;
+                    .image{
+                        border-radius: 50%;
+                        height: 60px;
+                        width:60px;
+                        margin: 5px;
+                        border: solid 1px #03A9F4;
+                        padding: 2px;
+                    }
                     .body-left{
                         flex: 5;
                         button{
@@ -58,6 +70,9 @@ page-users {
                             }
                             .inner-body{
                                 display: flex;
+                                b{
+                                    font-weight: 450
+                                }
                                 .inner-left{
                                     flex: 1;
                                     span{

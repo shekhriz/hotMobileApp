@@ -154,7 +154,7 @@
                   <div class = "col" ><b>Status </b>
                     <span class="value"   (click)="openModal(value)" >{{value.lastMileStone}}</span>
                   </div>
-                  <div class = "col" *ngIf="value.total"  ><b>Internal Sub. </b>
+                  <div class = "col" *ngIf="value.total" (click)="internalModal(value.positionId,value.jobTitle)" ><b>Internal Sub. </b>
                     <span *ngIf="!value.answered"  >0</span >
                       {{value.answered}}/{{value.total}}
                   </div>
@@ -163,7 +163,7 @@
                   </div>
                </div>
                <div class = "row"  >
-                  <div class = "col" *ngIf="value.answered" ><b>Screened </b>
+                  <div class = "col" *ngIf="value.answered" (click)="screenModal(value.positionId,value.jobTitle)"><b>Screened </b>
                    <span  *ngIf="!value.screened"  >0</span>
                    {{value.screened}}/{{value.answered}}
                   </div>

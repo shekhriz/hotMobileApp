@@ -11,6 +11,8 @@ import { ViewAllRecruiterPage }  from '../../pages/view-all-recruiter/view-all-r
 import { ViewAllScreenerPage }  from '../../pages/view-all-screener/view-all-screener';
 import { ViewAllRequirementsPage }  from '../../pages/view-all-requirements/view-all-requirements';
 import { EditUserPage }  from '../../pages/edit-user/edit-user';
+import { InternalSubmisssionModalPage } from '../../pages/internal-submisssion-modal/internal-submisssion-modal';
+import { ScreenStatusModalPage } from '../../pages/screen-status-modal/screen-status-modal';
 
 
 @Component({
@@ -159,5 +161,14 @@ console.log("id",id)
     console.log('lastMileStone',reruirements);
     chooseModal.present(); 
   }
-
+  internalModal(positionId,jobTitle){
+    let chooseModal = this.modalCtrl.create(InternalSubmisssionModalPage,{positionId:positionId,jobTitle:jobTitle});
+    console.log('positionId',positionId);
+    chooseModal.present(); 
+  }
+  screenModal(positionId,jobTitle){
+    let chooseModal = this.modalCtrl.create(ScreenStatusModalPage,{positionId:positionId,jobTitle:jobTitle});
+    console.log('positionId',positionId);
+    chooseModal.present(); 
+  }
 }

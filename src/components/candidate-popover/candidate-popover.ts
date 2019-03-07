@@ -293,8 +293,8 @@ export class CandidatePopoverComponent {
               loading.dismiss();
               this.util.showToast("Candidate deleted sucessfuly","SUCCESS");
               
-                this.restProvider.refresh(this.token)
-                .then(res => {
+                // this.restProvider.refresh(this.token)
+                // .then(res => {
                   
                     let jsonData = {
                       "user":this.loginUser,
@@ -309,9 +309,9 @@ export class CandidatePopoverComponent {
                     },error => {
                     
                     })
-                },error => {
+                // },error => {
                 
-                })
+                // })
               
             },error => {
               loading.dismiss();

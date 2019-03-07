@@ -23,10 +23,12 @@ export class HomemodalPage {
   questionApprovedDate:string;
   questionSubmittedDate:string;
   questionsAddedDate:string;
+  jobTitle:string;
   items:any=[];
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public viewCtrl : ViewController) {
       this.reruirements = navParams.get('reruirements');
+      this.jobTitle =  this.reruirements.jobTitle;
       this.lastMileStone = this.reruirements.lastMileStone;
       this.addNoMoreCandidateDate = this.reruirements.addNoMoreCandidateDate;
       this.CREATED_DATE = (this.reruirements.CREATED_DATE);
@@ -35,71 +37,10 @@ export class HomemodalPage {
       this.questionApprovedDate =this.reruirements.questionApprovedDate;
       this.questionSubmittedDate = this.reruirements.questionSubmittedDate;
       this.questionsAddedDate =  this.reruirements.questionsAddedDate;
-      this.questionsAddedDate =  this.reruirements.questionsAddedDate;
-      this.questionsAddedDate =  this.reruirements.questionsAddedDate;
     console.log('CREATED_DATE',this.CREATED_DATE)
 
   
-  // this.items = [
-   
-  //   {
-  //     title: 'Create Requirement',
-  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-    
-  //     time: {subtitle: '4/16/2013', title: '21:30'}
-  //   },
-  //   {
-  //     title: 'Add Screener ',
-  //     content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-     
-  //     time: {subtitle: 'January', title: '29'}
-  //   },
-  //   {
-  //     title: 'Add Questions',
-  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-    
-  //     time: {title: 'Short Text'}
-  //   }, {
-  //     title: 'Submit Questions',
-  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-   
-  //     time: {title: 'Short Text'}
-  //   }, {
-  //     title: 'Approve Questions',
-  //    content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-  //     time: {title: 'Short Text'}
-  //   }, {
-  //     title: 'Add Candidates',
-  //          content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     icon2:'checkmark',
-  //     time: {title: 'Short Text'}
-  //   }, {
-  //     title: 'Add No more Candidates',
-  //     content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //     //icon2:'checkmark',
-  //     time: {title: 'Short Text'}
-  //   }, {
-  //     title: 'Close Requirements',
-  //          content: 'Parsley amaranth tigernut silver beet maize fennel spinach. Ricebean black-eyed pea maize scallion green bean spinach cabbage jícama bell pepper carrot onion corn plantain garbanzo. Sierra leone bologi komatsuna celery peanut swiss chard silver beet squash dandelion maize chicory burdock tatsoi dulse radish wakame beetroot.',
-  //     icon: 'lock',
-  //    // icon2:'checkmark',
-  //     time: {title: 'Short Text'}
-  //   }
-  // ]
-
-
+  
  
 
   if(this.lastMileStone == 'CandidateAdded'){
@@ -119,7 +60,7 @@ export class HomemodalPage {
         },
         {
           title: 'Add Questions',
-          content: this.questionApprovedDate,  
+          content: this.questionsAddedDate,  
           icon: 'checkmark',
         }, {
           title: 'Submit Questions',
@@ -127,7 +68,7 @@ export class HomemodalPage {
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
-          content: this.questionsAddedDate,  
+          content: this.questionApprovedDate,  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
@@ -166,7 +107,7 @@ export class HomemodalPage {
           icon: 'checkmark',
         }, {
           title: 'Approve Questions',
-          content: this.questionsAddedDate,  
+          content: this.questionApprovedDate,  
           icon: 'checkmark',
         }, {
           title: 'Add Candidates',
@@ -190,23 +131,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Questions',
+        content: this.questionsAddedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Submit Questions',
+        content: this.questionSubmittedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
+        content: this.questionApprovedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Add Candidates',
+     //   content: this.addCandidateDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add No more Candidates',
@@ -222,23 +175,34 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon3: 'radio-button-on',
       },
       {
         title: 'Add Questions',
+        content: this.questionsAddedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Submit Questions',
+        content: this.questionSubmittedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
+        content: this.questionApprovedDate,  
         icon: 'checkmark',
       }, {
         title: 'Add Candidates',
+        content: this.addCandidateDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Add No more Candidates',
@@ -254,23 +218,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Questions',
+        content: this.questionsAddedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Submit Questions',
+        content: this.questionSubmittedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
+      //  content: this.questionApprovedDate,  
+
         icon2: 'radio-button-off',
       }, {
         title: 'Add Candidates',
+       // content: this.addCandidateDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add No more Candidates',
@@ -286,23 +262,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+      //  content: this.screenerAddedDate,  
+
         icon3: 'radio-button-on',
       },
       {
         title: 'Add Questions',
+     //   content: this.questionsAddedDate,  
+
         icon2: 'radio-button-off',
       }, {
         title: 'Submit Questions',
+      //  content: this.questionSubmittedDate,  
+
         icon2: 'lock',
       }, {
         title: 'Approve Questions',
+       // content: this.questionApprovedDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add Candidates',
+        //content: this.addCandidateDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add No more Candidates',
@@ -318,23 +306,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Questions',
+        content: this.questionsAddedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Submit Questions',
+        content: this.questionSubmittedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
+        content: this.questionApprovedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Add Candidates',
+      //  content: this.addCandidateDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add No more Candidates',
@@ -350,23 +350,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Questions',
+        //content: this.questionsAddedDate,  
+
         icon2: 'radio-button-off',
       }, {
         title: 'Submit Questions',
+        //content: this.questionSubmittedDate,  
+
         icon2: 'lock',
       }, {
         title: 'Approve Questions',
+       // content: this.questionApprovedDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add Candidates',
+        //content: this.addCandidateDate,  
+
         icon2: 'lock',
       }, {
         title: 'Add No more Candidates',
@@ -383,23 +395,35 @@ export class HomemodalPage {
      
         {
           title: 'Create Requirement',
+          content:this.CREATED_DATE,  
+
           icon: 'checkmark',
         },
         {
           title: 'Add Screener ',
+        //  content: this.screenerAddedDate,  
+
           icon2: 'lock',
         },
         {
           title: 'Add Questions',
+          //content: this.questionsAddedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Submit Questions',
+         // content: this.questionSubmittedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Approve Questions',
+        //content: this.questionApprovedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Add Candidates',
+        //  content: this.addCandidateDate,  
+
           icon2: 'lock',
         }, {
           title: 'Add No more Candidates',
@@ -414,23 +438,35 @@ export class HomemodalPage {
      
         {
           title: 'Create Requirement',
+          content:this.CREATED_DATE,  
+
           icon: 'checkmark',
         },
         {
           title: 'Add Screener ',
+       //   content: this.screenerAddedDate,  
+
           icon2: 'lock',
         },
         {
           title: 'Add Questions',
+        //  content: this.questionsAddedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Submit Questions',
+        //  content: this.questionSubmittedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Approve Questions',
+       // content: this.questionApprovedDate,  
+
           icon2: 'lock',
         }, {
           title: 'Add Candidates',
+       //   content: this.addCandidateDate,  
+
           icon2: 'lock',
         }, {
             title: 'Add No more Candidates',
@@ -448,23 +484,35 @@ export class HomemodalPage {
      
       {
         title: 'Create Requirement',
+        content:this.CREATED_DATE,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Screener ',
+        content: this.screenerAddedDate,  
+
         icon: 'checkmark',
       },
       {
         title: 'Add Questions',
+        content: this.questionsAddedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Submit Questions',
+        content: this.questionSubmittedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Approve Questions',
+        content: this.questionApprovedDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Add Candidates',
+        content: this.addCandidateDate,  
+
         icon: 'checkmark',
       }, {
         title: 'Add No more Candidates',

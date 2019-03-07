@@ -8,7 +8,7 @@
   <main-header></main-header>
   <div class="addBtn"> 
       <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
-          <h1>Candidate Past History</h1>
+          <h1>{{jobTitle}}-Workflow</h1>
           
   </div>
 
@@ -28,8 +28,8 @@
           <span>
             {{item.title}}
           </span>
-          <h6 >
-            {{item.content |date:'medium'}} IST
+          <h6 *ngIf="item.content != '0'">
+            {{item.content |date:'medium'}} 
           </h6>
         </ion-card >
         
