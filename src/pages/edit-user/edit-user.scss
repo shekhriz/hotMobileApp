@@ -1,3 +1,11 @@
+.card-header-ios{
+    font-size: 20px !important;
+    padding: 5px !important;
+}
+.inputContent{
+    padding-top: 1px !important;
+}
+
 page-edit-user {
     ion-content{
         ion-card{
@@ -9,14 +17,12 @@ page-edit-user {
                
             }
             ion-card-content{
-                .card-header-ios{
-                    font-size: 20px !important;
-                }
+                
                 
                 ion-list{
                     ._row{
                         .inputlist{
-                            font-size: 20px
+                            font-size: 15px
                         }
                         .item-inner{
                             border-bottom: solid 1px #ccc !important;

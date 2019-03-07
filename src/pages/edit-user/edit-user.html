@@ -19,7 +19,7 @@
                 <ion-list >
                     <ion-item class="_row" >
                         <ion-label floating class="inputlist">Role<span class="astric">*</span> : </ion-label>
-                        <ion-select [(ngModel)]="user.role" disabled=true >
+                        <ion-select class="inputContent" [(ngModel)]="user.role" disabled=true >
                           <ion-option value="">Select</ion-option>
                           <ion-option value="{{role}}" *ngFor="let role of rolls" >{{role}}</ion-option>
                         </ion-select>
@@ -28,27 +28,27 @@
                      
                     <ion-item  class="_row" >
                       <ion-label floating class="inputlist">First Name<span class="astric">*</span> : </ion-label>
-                      <ion-input type="text" [(ngModel)]="user.firstName" ></ion-input>
+                      <ion-input class="inputContent" type="text" [(ngModel)]="user.firstName" ></ion-input>
                     </ion-item> 
     
                     <ion-item  class="_row">
                         <ion-label floating class="inputlist">Last Name<span class="astric">*</span> : </ion-label>
-                        <ion-input type="text" [(ngModel)]="user.lastName" ></ion-input>
+                        <ion-input class="inputContent" type="text" [(ngModel)]="user.lastName" ></ion-input>
                       </ion-item>
                     
                       <ion-item  class="_row"> 
                         <ion-label floating class="inputlist">User Name<span class="astric">*</span> : </ion-label>
-                        <ion-input type="text" [(ngModel)]="user.userName" [readonly]="isReadonly"></ion-input>
+                        <ion-input class="inputContent" type="text" [(ngModel)]="user.userName" [readonly]="isReadonly"></ion-input>
                       </ion-item>
     
                       <ion-item  class="_row">
                           <ion-label floating class="inputlist">Email Id<span class="astric">*</span> : </ion-label>
-                          <ion-input type="email" [(ngModel)]="user.emailId" [readonly]="isReadonly" ></ion-input>
+                          <ion-input class="inputContent" type="email" [(ngModel)]="user.emailId" [readonly]="isReadonly" ></ion-input>
                         </ion-item>
                       
                         <ion-item  class="_row">
                           <ion-label floating class="inputlist"> Contact<span class="astric">*</span> : </ion-label>
-                          <ion-input type="text" [(ngModel)]="user.contactNumber" [readonly]="isReadonly"></ion-input>
+                          <ion-input class="inputContent" type="text" [(ngModel)]="user.contactNumber" [readonly]="isReadonly"></ion-input>
                         </ion-item>
     
                         
@@ -75,24 +75,24 @@
                     <div class="tsDetails"  *ngFor="let skill of skillArray;" >
                         <ion-item class="_row "   >
                             <ion-label floating class="inputlist">Skill Type : </ion-label>
-                            <ion-select [(ngModel)]="skill.skillType">
+                            <ion-select class="inputContent" [(ngModel)]="skill.skillType">
                                      <ion-option value="PrimarySkill" >Primary skills</ion-option>
                                     <ion-option value="SecondarySkill" >Secondary Skills</ion-option> 
                             </ion-select>
                         </ion-item>
                         <ion-item  class="_row">
                             <ion-label floating class="inputlist">Skill Name	 : </ion-label>
-                            <ion-input type="text" [(ngModel)]='skill.skills'></ion-input>
+                            <ion-input class="inputContent" type="text" [(ngModel)]='skill.skills'></ion-input>
                           </ion-item> 
                         
                         <ion-item  class="_row"> 
                         <ion-label floating class="inputlist">Years : </ion-label>
-                        <ion-input type="text" [(ngModel)]='skill.years' ></ion-input>
+                        <ion-input class="inputContent" type="text" [(ngModel)]='skill.years' ></ion-input>
                         </ion-item>
     
                         <ion-item  class="_row">
                             <ion-label floating class="inputlist">Months : </ion-label>
-                            <ion-input type="text" [(ngModel)]='skill.months'></ion-input>
+                            <ion-input class="inputContent" type="text" [(ngModel)]='skill.months'></ion-input>
                         </ion-item>
                          
                               
@@ -102,7 +102,7 @@
                     </div>
                     <ion-item  class="_row tesBottom">
                         <ion-input class="left" type="text" [(ngModel)]=ratings></ion-input>
-                        <ion-select class="right" [(ngModel)]="gaming1"  >
+                        <ion-select class="inputContent" class="right" [(ngModel)]="gaming1"  >
                             <ion-option value="Dollar">USD</ion-option>
                             <ion-option value="INR">INR</ion-option>
                         </ion-select>
@@ -120,37 +120,37 @@
                   <ion-list>
                       <ion-item class="_row">
                         <ion-label floating class="inputlist">Alternate Contact : </ion-label>
-                        <ion-input type="text" [(ngModel)]="user.alternateContact"></ion-input>
+                        <ion-input class="inputContent" type="text" [(ngModel)]="user.alternateContact"></ion-input>
                       </ion-item>
                     
                       <ion-item  class="_row">
                         <ion-label floating class="inputlist">Address Line 1 : </ion-label>
-                        <ion-input type="text" [(ngModel)]="user.addressOne"></ion-input>
+                        <ion-input class="inputContent" type="text" [(ngModel)]="user.addressOne"></ion-input>
                       </ion-item>
       
                       <ion-item  class="_row">
                           <ion-label floating class="inputlist">Address Line 2 : </ion-label>
-                          <ion-input type="text" [(ngModel)]="user.addressTwo"></ion-input>
+                          <ion-input class="inputContent" type="text" [(ngModel)]="user.addressTwo"></ion-input>
                         </ion-item>
                       
                         <ion-item  class="_row"> 
                           <ion-label floating class="inputlist">Zip Code : </ion-label>
-                          <ion-input type="text" [(ngModel)]="user.zipCode"></ion-input>
+                          <ion-input class="inputContent" type="text" [(ngModel)]="user.zipCode"></ion-input>
                         </ion-item>
       
                         <ion-item  class="_row">
                             <ion-label floating class="inputlist">City : </ion-label>
-                            <ion-input type="text" [(ngModel)]="user.city"></ion-input>
+                            <ion-input class="inputContent" type="text" [(ngModel)]="user.city"></ion-input>
                           </ion-item>
                         
-                          <ion-item  class="_row">
+                          <ion-item  class="_row"> 
                             <ion-label floating class="inputlist">State : </ion-label>
-                            <ion-input type="text" [(ngModel)]="user.state"></ion-input>
+                            <ion-input class="inputContent" type="text" [(ngModel)]="user.state"></ion-input>
                           </ion-item>
     
                           <ion-item  class="_row">
                               <ion-label floating class="inputlist"> Country : </ion-label>
-                              <ion-input type="text" [(ngModel)]="user.country"></ion-input>
+                              <ion-input class="inputContent" type="text" [(ngModel)]="user.country"></ion-input>
                             </ion-item>
                     </ion-list>
               </ion-card-content>
