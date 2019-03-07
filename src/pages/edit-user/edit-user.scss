@@ -9,6 +9,10 @@ page-edit-user {
                
             }
             ion-card-content{
+                .card-header-ios{
+                    font-size: 20px !important;
+                }
+                
                 ion-list{
                     ._row{
                         .inputlist{

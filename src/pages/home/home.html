@@ -23,7 +23,8 @@
         <ion-card-content>
           <div class="card-body" (click)="gotoClients()">
               <div class="body-top">
-                <ion-icon class="_blue" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_blue" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_blue" name="briefcase"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_blue">{{totalClients}}</h1>
@@ -39,7 +40,8 @@
         <ion-card-content>
           <div class="card-body"  (click)="gotoRequirements()">
               <div class="body-top">
-                <ion-icon class="_purple" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_purple" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_purple" name="pulse"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_purple">{{totalRequirements}}</h1>
@@ -52,7 +54,8 @@
         <ion-card-content>
           <div class="card-body"  (click)="gotoCandidates()">
               <div class="body-top">
-                <ion-icon class="_red" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_red" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_red" name="school"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_red">{{totalCandidates}}</h1>
@@ -69,7 +72,8 @@
         <ion-card-content>
           <div class="card-body" (click)="gotoRequirements()">
               <div class="body-top">
-                <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_white" name="folder-open"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_white">{{openRequirements}}</h1>
@@ -82,7 +86,8 @@
         <ion-card-content>
           <div class="card-body" (click)="gotoRequirements()">
               <div class="body-top">
-                <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_white" name="lock"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_white">{{closeRequirements}}</h1>
@@ -98,7 +103,8 @@
         <ion-card-content>
           <div class="card-body" (click)="gotoCandidates()">
               <div class="body-top">
-                <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_white" name="search"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_white">{{screenedCandidates}}</h1>
@@ -111,7 +117,8 @@
         <ion-card-content>
           <div class="card-body" (click)="gotoCandidates()">
               <div class="body-top">
-                <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon>
+                <!-- <ion-icon class="_white" ios="ios-contact" md="md-contact"></ion-icon> -->
+                <ion-icon class="_white" name="warning"></ion-icon>
               </div>
               <div class="body-bottom">
                 <h1 class="_white">{{unScreenedCandidates}}</h1>
@@ -125,8 +132,9 @@
     <div class="card-container2" style="margin-top: -3px;">    
         <ion-card  >
           <ion-card-content  class="green-theme card-panel"  (click)="hide()">  
-              <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon>  
-              <span class="_white">Open Requirements - Analytics</span>
+              <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon> 
+              <div class="containerText"><span class="_white">Open Requirements - Analytics</span> </div> 
+              
               
           </ion-card-content>
          
@@ -180,7 +188,10 @@
           <ion-card>
             <ion-card-content  class="blue-theme card-panel" (click)="hideRec()">   
                 <ion-icon class="add" name="ios-add-circle-outline"  item-right  ></ion-icon>  
-                <span class="_white">Recruiter - Analytics</span>
+                <div class="containerText">
+                  <span class="_white">Recruiter - Analytics</span>
+                </div>
+                
             </ion-card-content>
            
             <ion-card-content  class="card-panel2" *ngIf="hiderec">
@@ -227,7 +238,10 @@
           <ion-card>
             <ion-card-content  class="purple-theme card-panel" item-right (click)="hideTs()">   
                 <ion-icon class="add" name="ios-add-circle-outline"   ></ion-icon>  
-                <span class="_white">Technical Screener - Analytics</span>
+                <div class="containerText">
+                  <span class="_white">Technical Screener - Analytics</span>
+                </div>
+                
                 
             </ion-card-content>
            

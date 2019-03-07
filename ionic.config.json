@@ -1,5 +1,5 @@
 {
-  "name": "hotAdmin",
+  "name": "hotMobileApp",
   "integrations": {
     "cordova": {}
   },
@@ -8,4 +8,4 @@
         "path": "/",
         "proxyUrl": "https://qa.hookedontalent.com"
     }]
-}
+ }

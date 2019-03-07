@@ -1,6 +1,12 @@
 page-add-user {
     ion-content{
         ion-card{
+
+            card-header-ios{
+                font-size: 20px !important;
+            }
+
+
             ion-card-header{
                 color: #000;
                 font-weight: bold;
