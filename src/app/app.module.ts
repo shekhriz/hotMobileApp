@@ -113,6 +113,7 @@ import { TimelineTimeComponent } from '../components/timeline/timeline';
 import { TimelineItemComponent } from '../components/timeline/timeline';
 import { InternalSubmisssionModalPage } from '../pages/internal-submisssion-modal/internal-submisssion-modal';
 import { ScreenStatusModalPage } from '../pages/screen-status-modal/screen-status-modal';
+import { ClientSubModalPage } from '../pages/client-sub-modal/client-sub-modal';
 
 
 
@@ -219,7 +220,8 @@ import { ScreenStatusModalPage } from '../pages/screen-status-modal/screen-statu
     TimelineTimeComponent,
     TimelineItemComponent,
     InternalSubmisssionModalPage,
-    ScreenStatusModalPage
+    ScreenStatusModalPage,
+    ClientSubModalPage
   ],
 
   imports: [ 
@@ -391,7 +393,8 @@ import { ScreenStatusModalPage } from '../pages/screen-status-modal/screen-statu
     TimelineTimeComponent,
     TimelineItemComponent,
     InternalSubmisssionModalPage,
-    ScreenStatusModalPage
+    ScreenStatusModalPage,
+    ClientSubModalPage
 
   ],
   providers: [

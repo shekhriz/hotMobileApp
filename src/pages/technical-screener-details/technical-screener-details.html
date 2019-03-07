@@ -63,7 +63,7 @@
 
                   <ion-item class="_row" *ngIf="objRole == 'AccountManager'">
                       <ion-label>Reporting Mgr. of Recruiting<span class="astric">*</span> : </ion-label>
-                      <ion-select [(ngModel)]="objReportingMgrOfRec">
+                      <ion-select [(ngModel)]="c">
                           <ion-option value="" disabled=true >Select</ion-option>
                           <ion-option value="{{mor.id}}"  *ngFor="let mor of morData">{{mor.firstName}}</ion-option>
                       </ion-select>

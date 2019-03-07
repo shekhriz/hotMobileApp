@@ -2033,4 +2033,56 @@ getRequirementCandidateStatics(token,id){
     });
   });  
 }
+addcandidates(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/requirement/addcandidates',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+fromFrontend(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/requirement/addcandidates/mail/fromFrontend',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+zoomApi(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/integrate/zoomApi',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
+skypeApi(token,data){
+  return new Promise((resolve, reject) => {
+    this.http.post(this.apiUrl+'hot/generateToken/skypeApi',JSON.stringify(data), {
+      headers: new HttpHeaders().set('Authorization', token)
+              .append('Accept', 'application/json;odata=verbose')
+              .append('Content-Type','application/json')
+     }).subscribe(res => {
+        resolve(res);
+      }, (err) => {
+        reject(err);
+      });
+  });
+}
   }

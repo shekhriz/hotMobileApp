@@ -170,7 +170,7 @@
                   <div class = "col" *ngIf="!value.answered" ><b>Screened </b>
                     <span class="value">---</span>
                   </div>
-                  <div class = "col" *ngIf="value.approved" ><b>Client Sub </b>
+                  <div class = "col" *ngIf="value.approved" (click)="clientModal(value.positionId,value.jobTitle)"><b>Client Sub </b>
                     <span  *ngIf="!value.clientSubmission"   >0</span>
                     {{value.clientSubmission}}/{{value.approved}}
                    </div>

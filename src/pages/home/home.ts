@@ -13,6 +13,7 @@ import { ViewAllRequirementsPage }  from '../../pages/view-all-requirements/view
 import { EditUserPage }  from '../../pages/edit-user/edit-user';
 import { InternalSubmisssionModalPage } from '../../pages/internal-submisssion-modal/internal-submisssion-modal';
 import { ScreenStatusModalPage } from '../../pages/screen-status-modal/screen-status-modal';
+import { ClientSubModalPage } from '../../pages/client-sub-modal/client-sub-modal';
 
 
 @Component({
@@ -168,6 +169,11 @@ console.log("id",id)
   }
   screenModal(positionId,jobTitle){
     let chooseModal = this.modalCtrl.create(ScreenStatusModalPage,{positionId:positionId,jobTitle:jobTitle});
+    console.log('positionId',positionId);
+    chooseModal.present(); 
+  }
+  clientModal(positionId,jobTitle){
+    let chooseModal = this.modalCtrl.create(ClientSubModalPage,{positionId:positionId,jobTitle:jobTitle});
     console.log('positionId',positionId);
     chooseModal.present(); 
   }

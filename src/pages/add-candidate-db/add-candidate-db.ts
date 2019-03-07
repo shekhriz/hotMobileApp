@@ -123,6 +123,7 @@ addCandidate(){
   let chooseModal = this.modalCtrl.create(SelectCandidateDbModalPage,{reqId:this.reqId,selecteddetails:this.selecteddetails});
    
     chooseModal.present(); 
+    console.log('selecteddetails',this.selecteddetails);
 }
 
 }
