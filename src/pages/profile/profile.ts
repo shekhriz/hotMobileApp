@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,LoadingController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,LoadingController,ViewController} from 'ionic-angular';
+import { HomePage } from '../home/home';
 import { UtilsProvider } from '../../providers/utils/utils';
 import { RestProvider } from '../../providers/rest/rest';
 /**
@@ -31,7 +32,8 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public loadingCtrl: LoadingController,
     public util:UtilsProvider,
-    public restProvider :RestProvider ) {
+    public viewCtrl : ViewController,
+    public restProvider :RestProvider ,) {
      
      this.token = this.util.getToken();
      this.userId = navParams.get('userId');
@@ -55,7 +57,7 @@ export class ProfilePage {
   }
 
   goBack(){
-    this.navCtrl.pop();
+    this.navCtrl.push(HomePage)
   }
 
   getRoles(){

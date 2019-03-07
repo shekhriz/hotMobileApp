@@ -66,9 +66,14 @@ export class CandidateResponsePage {
   }
 
   candidateResponse(){
+    // let loading = this.loadingCtrl.create({
+    //   content: 'Please wait...'
+    // });
+    // loading.present();
     this.restProvider.candidateResponse(this.token,this.reqId,this.cId)
     .then((res:any)=>{
       this.response = res;
+     // loading.dismiss();
       console.log(this.response);
       this.finalVerdict =  this.response.positionCandidates.finalVerdict;
       this.finalVerdictChange = this.finalVerdict;
@@ -81,21 +86,28 @@ export class CandidateResponsePage {
       this.notes = this.response.candidateUserNotesList;
      
       this.average= this.response.finalAverage;
+      
 
      // console.log("notes_status",this.notes_status);
     },errrr=>{
+    //  loading.dismiss();
     });  
   }
 
   responseBycandidateId(){
+    // let loading = this.loadingCtrl.create({
+    //   content: 'Please wait...'
+    // });
+    // loading.present();
     this.restProvider.responseBycandidateId(this.token,this.cId)
     .then((res:any)=>{
       this.responsebyid = res;
       this.candidateDetails = this.responsebyid['Candidate Details']
       this.firstName =  this.candidateDetails.firstName;
       this.lastName = this.candidateDetails.lastName;
-      
+     // loading.dismiss();
     },errrr=>{
+      //loading.dismiss();
     });
   }
 
@@ -110,7 +122,7 @@ export class CandidateResponsePage {
   gotoCanditateDetails(){
     this.navCtrl.push(CandidateDetailPage,
       {details:this.response,detailsById: this.candidateDetails,reqId: this.reqId,cId:this.cId,workflowId:this.workflowId});
-    //console.log("adyasa",this.candidateDetails);
+    // console.log("adyasa",this.candidateDetails);
   }
   gotoQuestions(){
     this.navCtrl.push(OquestionPage,

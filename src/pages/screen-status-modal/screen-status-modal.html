@@ -1,0 +1,49 @@
+<ion-header>
+  <main-header></main-header>
+  <div class="addBtn"> 
+      <button ion-button color="grey" class="btn1" outline (click)="goBack()"><ion-icon name="undo" ></ion-icon></button>
+          <h1>{{jobTitle}}- Screen Status</h1>
+          
+  </div>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>       
+ 
+    <div class="body" *ngFor="let data of internalData | search : myInput"  >
+     
+          <div class="body-left col">
+              
+              <button ion-item >
+                 
+                  <div class="inner-body" >
+                      <label class="inner-left"><b>Candidate</b> :  <span >{{data.firstName}}</span></label> 
+                  </div>
+                  <div class="inner-body " *ngIf="screener != null">
+                      <label class="inner-left"><b>Screener</b> :  <span >{{data.screener}}</span></label> 
+                  </div>
+                  <div class="inner-body" >
+                      <label class="inner-left"><b>Status</b> :  <span >{{data.finalVerdict}}</span></label> 
+                  </div>
+                  <div class="inner-body" *ngIf="data.finalVerdict == 'ScheduleInterview'">
+                    <label class="inner-left"><b>InterviewDate</b> :  <span >{{data.finalVerdictDate |date:'medium'}}</span></label> 
+                   </div>
+                   <div class="inner-body" *ngIf="data.finalVerdict == 'Approve'">
+                    <label class="inner-left"><b>ApproveDate</b> :  <span >{{data.finalVerdictDate |date:'medium'}}</span></label> 
+                   </div>
+                   <!-- <div class="inner-body" *ngIf="data.status == 'Answered'">
+                    <label class="inner-left"><b>AnsweredDate</b> :  <span >{{data.answeredDate |date:'medium'}}</span></label> 
+                   </div> -->
+                  
+              </button>   
+          
+         
+    </div>
+    
+    
+    </div>          
+      
+</ion-list>
+</ion-content>

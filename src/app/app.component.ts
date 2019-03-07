@@ -27,8 +27,9 @@ export class MyApp {
     public restProvider: RestProvider,
     private screenOrientation: ScreenOrientation
     ) {
+ // if(platform.is('cordova')){
     platform.ready().then(() => {
-      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
+    //  this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT);
 
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -69,6 +70,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
     });
-
   }
+ // }
 }

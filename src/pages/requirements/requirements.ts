@@ -42,9 +42,10 @@ loginUser:any = {};
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
-    loading.present();
+  loading.present();
     this.restProvider.getRequirements(token,user)
     .then( res=> {
+     
       this.requirements = res;
       
       loading.dismiss();

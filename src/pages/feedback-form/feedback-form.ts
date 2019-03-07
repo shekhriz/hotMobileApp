@@ -222,5 +222,8 @@ export class FeedbackFormPage {
           
          
   }
+  goBack(){
+    this.navCtrl.pop();
+  }
  
 }
