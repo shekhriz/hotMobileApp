@@ -34,25 +34,45 @@
              
             <div class="row">
                 <ion-label class="inputlist">Submission Type <span class="astric">*</span>: </ion-label>
-                <ion-select [(ngModel)]="details.submissionType" (ionChange)="onSelectChange($event)">
-                  <ion-option value=""  disabled=true >Select </ion-option>
-                  <ion-option value="One Way" >One Way </ion-option>
-                  <ion-option value="Two Way" >Two Way</ion-option> 
-                  <ion-option value="Prospect" >Prospect</ion-option> 
-                  <ion-option value="Zoom" >Zoom</ion-option> 
-                  <ion-option value="Skype" >Skype</ion-option> 
-              </ion-select>
+                 <!-- <ion-select [(ngModel)]="details.mySubType"  (ionChange)="onSelectChange($event)">
+                  <ion-option value="" >Select </ion-option>
+                  <ion-option  *ngFor="let i of econt" >{{i.type}} </ion-option>
+                   <ion-option value="Two Way">Two Way</ion-option>
+                  <ion-option value="Prospect" >Prospect </ion-option>
+                  <ion-option value="Zoom" >Zoom </ion-option>
+                  <ion-option value="Skype" >Skype </ion-option> 
+      
+                </ion-select>  -->
+                <select [(ngModel)]="details.mySubType"  (ngModelChange)="onSelectChange($event)" >
+                  <option value="" disabled="true" >Select </option>
+                  <option value="One Way" >One Way </option>
+                  <option value="Two Way" >Two Way</option> 
+                  <option value="Prospect" >Prospect</option> 
+                  <option value="Zoom" >Zoom</option> 
+                  <option value="Skype" >Skype</option> 
+                </select>
             </div>
             
-             <div class="row" *ngIf="details.submissionType == 'Zoom' || details.submissionType == 'Skype'">
-                <ion-item>
+             <div class="row" *ngIf="details.mySubType == 'Zoom' || details.mySubType == 'Skype'">
+               
                     <ion-label class="inputlist">Screen by <span class="astric">*</span>: </ion-label>
-                    <ion-select [(ngModel)]="details.selectedScr" >
-                        <ion-option value="" disabled=true>Select</ion-option>
-                        <ion-option *ngFor="let name of scrData" >{{name.firstName}}</ion-option>
-                    </ion-select>
-                  </ion-item>
+                    <select [(ngModel)]="details.selectedScr"  >
+                        <option value="" disabled="true">Select</option>
+                        <option [value]="data.firstName" *ngFor="let data of scrData" >{{data.firstName}}</option>
+                    </select>
+                    
+                    <!-- <calendar [eventSource]="eventSource"
+                      [calendarMode]="calendar.mode"
+                      [currentDate]="calendar.currentDate"
+                      (onEventSelected)="onEventSelected($event)"
+                      (onTitleChanged)="onViewTitleChanged($event)"
+                      (onTimeSelected)="onTimeSelected($event)"
+                      step="30"
+                      class="calendar">
+                  </calendar>
+                   -->
             </div> 
+            <hr>
           </div> 
           
          

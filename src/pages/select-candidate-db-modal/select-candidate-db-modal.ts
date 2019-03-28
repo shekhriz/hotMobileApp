@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams,ViewController,LoadingController } 
 import { UtilsProvider } from '../../providers/utils/utils';
 import { RestProvider } from '../../providers/rest/rest';
 import { CandidatePage }  from '../../pages/candidate/candidate';
+import { LoginPageModule } from '../login/login.module';
 
 /**
  * Generated class for the SelectCandidateDbModalPage page.
@@ -25,7 +26,7 @@ export class SelectCandidateDbModalPage {
   interviewName :any;
   reqId:string;
   submissionType:string;
-  selectedScr:string;
+  selectedScr:any;
   candidates:any;
   loginUser:any;
   candidateId:string;
@@ -39,29 +40,29 @@ export class SelectCandidateDbModalPage {
   relocateWithFamily:string;
   id:string;
   willingToRelocate:string;
+  tempArray:Array<Object> = [];
+  tempArray2:Array<Object> = [];
+
   constructor(public navCtrl: NavController, public navParams: NavParams,
     public restProvider: RestProvider,
     public util: UtilsProvider,
     public loadingCtrl:LoadingController,
     public viewCtrl : ViewController) {
     this.selecteddetails = navParams.get('selecteddetails');
-    this.candidateId = this.selecteddetails[0].candidateId;
-    this.emailId = this.selecteddetails[0].emailId;
-    this.recScheduledDate = this.selecteddetails[0].recScheduledDate;
-    this.recScheduledTime = this.selecteddetails[0].recScheduledTime;
-    this.chancesOfExtension =this.selecteddetails[0].chancesOfExtension;
-    this.educationalYear =this.selecteddetails[0].educationalYear;
-    this.isBlackListed =this.selecteddetails[0].isBlackListed;
-    this.linkedInProfileURL =this.selecteddetails[0].linkedInProfileURL;
-    this.relocateWithFamily =this.selecteddetails[0].relocateWithFamily;
-    this.willingToRelocate =this.selecteddetails[0].willingToRelocate;
-    
-   // this.interviewType = navParams.get('interviewType');
+   
+
     this.reqId = navParams.get('reqId');
     this.loginUser = this.util.getSessionUser();
-
+    // Object.keys(this.selecteddetails).forEach(key => {
+    //   this.selecteddetails[key].mySubType != "";
+    // })
+    // for(var i in this.selecteddetails){
+    //   this.selecteddetails[i].mySubType = "";
+    //   console.log(this.selecteddetails[key]);
+    // }
+   
    console.log("selecteddetails",this.selecteddetails);
-   console.log("candidateId",this.candidateId);
+   console.log("candidateId",this.selecteddetails.candidateId);
     this.token = this.util.getToken();
    
 
@@ -70,28 +71,10 @@ export class SelectCandidateDbModalPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad SelectCandidateDbModalPage');
   }
-  closeModal(){
-    this.viewCtrl.dismiss();
-  }
-  cancelData(){
-    this.viewCtrl.dismiss();
-
-  }
- 
- // onSelectChange(details) {
-    // console.log("adi",details.submissionType);
-    // if(details.submissionType == 'Zoom' || details.submissionType == 'Skype' || details.submissionType == 'Two way'){
-    //   this.restProvider.getRequirementUserStatics(this.token,this.reqId)
-    //   .then((res:any)=>{
-    //     this.scrData = res;
-    //    console.log('scrData',this.scrData) 
-    //   },errrr=>{
-    //   });
-    // }
-    // console.log(" selectedType",this.selectedType)
   
- // }
+
   onSelectChange(selectedValue) {
+    
     console.log('Selected', selectedValue);
     this.submissionType = selectedValue;
     console.log("adyasa",this.submissionType); 
@@ -99,128 +82,168 @@ export class SelectCandidateDbModalPage {
       this.restProvider.getRequirementUserStatics(this.token,this.reqId)
       .then((data:any)=>{
         this.scrData = data
-        console.log("rizwan",this.submissionType); 
+        console.log("rizwan",this.scrData); 
       },errrr=>{
       });
-   this.selectedScr = selectedValue;
-     
-      console.log("ssssssssssss",this.selectedScr); 
+   
 
     }
     
   }
 
   submitCandidate(){
+   
     let loading = this.loadingCtrl.create({
       content: 'Please wait...'
     });
     
     loading.present();
    
-    let jsonData={
-      candidatesBean:{
-        'candidateId': this.candidateId,
-        'chancesOfExtension': this.chancesOfExtension,
-        'educationalYear': this.educationalYear,
-        'emailId': this.emailId,
+    Object.keys(this.selecteddetails).forEach(key => {
+     if(this.selecteddetails[key].mySubType == "One Way" || this.selecteddetails[key].mySubType == "Prospect" || this.selecteddetails[key].mySubType == "Two Way") {
+      this.tempArray.push({
+        'candidateId': this.selecteddetails[key].candidateId,
+        'chancesOfExtension': this.selecteddetails[key].chancesOfExtension,
+        'educationalYear': this.selecteddetails[key].educationalYear,
+        'emailId': this.selecteddetails[key].emailId,
         'internalSubEmailTemp': "",
-        'isAlreadyAdded': false,
-        'isBlackListed': this.isBlackListed,
-        'linkedInProfileURL':this.linkedInProfileURL,
-        'note': null,
-        'recScheduledDate': this.recScheduledDate,
-        'recScheduledTime': this.recScheduledTime,
-        'relocateWithFamily': this.relocateWithFamily,
+        'isAlreadyAdded':false,
+        'isBlackListed': this.selecteddetails[key].isBlackListed,
+        'linkedInProfileURL':this.selecteddetails[key].linkedInProfileURL,
+        'note': this.selecteddetails[key].note,
+        'relocateWithFamily': this.selecteddetails[key].relocateWithFamily,
         'requirementId': this.reqId,
-        'screenByUser': this.selectedScr,
-        'screenByUserEmail': this.emailId,
-        'screenByUserId': this.id,
-        'subVendorId': null,
-        'submissionType':this.submissionType,
-        'willingToRelocate': this.willingToRelocate
-      },
-      user:this.loginUser
+        'subVendorId': this.selecteddetails[key].subVendorId,
+        'submissionType': this.selecteddetails[key].mySubType,
+        'willingToRelocate': this.selecteddetails[key].willingToRelocate
+      })
+     }
+     if(this.selecteddetails[key].mySubType == 'Zoom' ||this.selecteddetails[key].mySubType == 'Skype') {
+      this.tempArray.push({
+        'candidateId': this.selecteddetails[key].candidateId,
+        'chancesOfExtension': this.selecteddetails[key].chancesOfExtension,
+        'educationalYear': this.selecteddetails[key].educationalYear,
+        'emailId': this.selecteddetails[key].emailId,
+        'internalSubEmailTemp': "",
+        'isAlreadyAdded':false,
+        'isBlackListed': this.selecteddetails[key].isBlackListed,
+        'linkedInProfileURL':this.selecteddetails[key].linkedInProfileURL,
+        'note': this.selecteddetails[key].note,
+        'relocateWithFamily': this.selecteddetails[key].relocateWithFamily,
+        'requirementId': this.reqId,
+        'body':"<!DOCTYPE html><body><p>Welcome to HOT</p></body></html>",
+        'recScheduledDate':'',
+        'screenByUser': this.scrData[key].firstName,
+        'screenByUserEmail': this.scrData[key].emailId,
+        'screenByUserId':this.scrData[key].id,
+        'subVendorId': this.selecteddetails[key].subVendorId,
+        'submissionType': this.selecteddetails[key].mySubType,
+        'willingToRelocate': this.selecteddetails[key].willingToRelocate
+      })
+     }
+     
+ 
+console.log("candidateIdnmmmm",this.tempArray);
+
+});
+    let jsonData={
+      candidatesBean:this.tempArray,
+
+      "user":this.loginUser,
+   
     }
+    jsonData.user.groupsSet=[];
+    jsonData.user.technicalScreenerDetailsSkillsSet=[];
     this.restProvider.addcandidates(this.token,jsonData)
     .then((data:any) => {
-       
-    },error => {
-        this.util.showToast("Something went wrong.","ERROR");
+      this.restProvider.candidates(this.token,this.reqId,this.loginUser)
+      .then((data:any) => {
         loading.dismiss();
-       // console.log(error);
-    });
-    this.restProvider.candidates(this.token,this.reqId,this.loginUser)
-    .then((data:any) => {
-  
-    },error => {
-        this.util.showToast("Something went wrong.","ERROR");
-        loading.dismiss();
-       // console.log(error);
-    });
-    let jsonData2={
-      candidatesBean:{
-        body:"<!DOCTYPE html><body><p>Welcome to HOT</p></body></html>",
-        candidatesId:[this.candidateId],
-        isAlreadyAdded:false,
-        requirementId:this.reqId,
-        subject:"Candidate Added for the Requirement"
-      },
-      user:this.loginUser
-    }
-    this.restProvider.fromFrontend(this.token,jsonData2)
-    .then((data:any) => {
-      let jsonData3={
-        candidatesBean:{
-          candidateEmail:"<!DOCTYPE html><body><p>Welcome to HOT</p></body></html>",
-          candidateId:this.candidateId,
-          date:""
+      },error => {
+          this.util.showToast("Something went wrong.","ERROR");
          
-        },
-        jwtDetails:{
-          emailId:this.loginUser.emailId,
-          firstName:this.loginUser.firstName,
-          id:this.loginUser.id,
-          lastName:this.loginUser.lastName,
-          role:this.loginUser.role,
-          userName:this.loginUser.userName
-        },
-        loginEmaild: this.loginUser.emailId,
-        requirementId: this.reqId,
-        screenByUser: this.selectedScr,
-        screenByUserEmail: this.emailId,
-        screenByUserId: this.id,
-        submissionType: this.submissionType,
-        time:""
-      }
-       if(this.submissionType == 'Zoom'){
-        this.restProvider.zoomApi(this.token,jsonData3)
+         // console.log(error);
+      });
+      //
+      Object.keys(this.selecteddetails).forEach(key => {  
+        let jsonData2={
+          
+            body:"<!DOCTYPE html><body><p>Welcome to HOT</p></body></html>",
+            candidatesId:[this.selecteddetails[key].candidateId],
+            isAlreadyAdded:false,
+            requirementId:this.reqId,
+            subject:"Candidate Added for the Requirement",
+        
+          "user":this.loginUser,
+        }
+        jsonData2.user.userImage= null;
+        this.restProvider.fromFrontend(this.token,jsonData2)
         .then((data:any) => {
-         
+          let jsonData3={
+          
+              candidateEmail:this.selecteddetails[key].emailId,
+              candidateId:this.selecteddetails[key].candidateId,
+              date:"28-03-2019", 
+              jwtDetails:{
+                emailId:this.loginUser.emailId,
+                firstName:this.loginUser.firstName,
+                id:this.loginUser.id,
+                lastName:this.loginUser.lastName,
+                role:this.loginUser.role,
+                userName:this.loginUser.userName
+              },
+                loginEmaild: this.loginUser.emailId,
+                requirementId: this.reqId,
+                screenByUser: this.scrData[key].firstName +''+this.scrData[key].lastName,
+                screenByUserEmail: this.scrData[key].emailId,
+                screenByUserId: this.scrData[key].id,
+                submissionType: this.selecteddetails[key].mySubType,
+                time:"16:05:00"
+          }
+        
+           if(this.selecteddetails[key].mySubType == "Zoom"){
+            this.restProvider.zoomApi(this.token,jsonData3)
+            .then((data:any) => {
+             
+            },error => {
+                this.util.showToast("Something went wrong.","ERROR");
+               
+               // console.log(error);
+            });
+           }
+
+           if(this.selecteddetails[key].mySubType =='Skype'){
+            this.restProvider.skypeApi(this.token,jsonData3)
+            .then((data:any) => {
+             
+            },error => {
+                this.util.showToast("Something went wrong.","ERROR");
+           
+               // console.log(error);
+            });
+           }
+
+
+          });
         },error => {
             this.util.showToast("Something went wrong.","ERROR");
-            loading.dismiss();
-           // console.log(error);
-        });
-       }
-     
-       if(this.submissionType == 'Skype'){
-        this.restProvider.skypeApi(this.token,jsonData3)
-        .then((data:any) => {
          
-        },error => {
-            this.util.showToast("Something went wrong.","ERROR");
-            loading.dismiss();
            // console.log(error);
         });
-       }
+      //
     },error => {
         this.util.showToast("Something went wrong.","ERROR");
-        loading.dismiss();
+      //  loading.dismiss();
        // console.log(error);
     });
    
-    
-    
-    
   }
+  closeModal(){
+    this.navCtrl.pop();
+  }
+  cancelData(){
+    this.viewCtrl.dismiss();
+
+  }
+ 
 }

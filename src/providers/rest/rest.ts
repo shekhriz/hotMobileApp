@@ -13,6 +13,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class RestProvider {
 apiUrl = '/';
+//apiUrl = 'https://qa.hookedontalent.com/';
   constructor(public http: HttpClient,public https: Http) {
     console.log('Hello RestProvider Provider');
 

@@ -4,7 +4,7 @@
     "cordova": {}
   },
   "type": "ionic-angular",
-  "proxies": [{
+ "proxies": [{
         "path": "/",
         "proxyUrl": "https://qa.hookedontalent.com"
     }]
